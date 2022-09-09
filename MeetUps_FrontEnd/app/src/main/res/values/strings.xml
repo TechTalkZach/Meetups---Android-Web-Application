@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">MeetUps</string>
+
+    <string-array name="education">
+        <item>PHD / Doctorat</item>
+        <item>Baccalauréat</item>
+        <item>Diplôme d\'associé / Certificat</item>
+        <item>DEC</item>
+        <item>AEC</item>
+    </string-array>
+
+    <string-array name="religion">
+        <item>Chrétien Protestant</item>
+        <item>Chrétien Catholique</item>
+        <item>Bouddhiste</item>
+        <item>Islamique</item>
+        <item>Judaïse</item>
+        <item>Pas religieux / euse</item>
+        <item>Autre</item>
+    </string-array>
+
 </resources>
