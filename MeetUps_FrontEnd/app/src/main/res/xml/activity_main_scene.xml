@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000">
+
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/idMotDePass"
+            app:layout_constraintEnd_toStartOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <Constraint
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/idSeConnecter"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/idLogo"
+            app:layout_constraintBottom_toTopOf="@+id/idCreerCompte"
+            app:layout_constraintVertical_bias="1.0" />
+        <Constraint
+            app:layout_constraintVertical_bias="0.996"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/idSeConnecter"
+            android:id="@+id/idCreerCompte"
+            android:visibility="invisible"/>
+
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/idCourriel"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:layout_height="393dp"
+            android:layout_width="306dp"
+            android:id="@+id/idLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_editor_absoluteX="24dp"
+            app:layout_editor_absoluteY="145dp" />
+        <Constraint
+            android:layout_height="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="166dp"
+            android:id="@+id/txtMeetUps" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/tvConnexion"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp" />
+        <Constraint
+            android:id="@+id/idCourriel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="378dp"
+            android:layout_height="56dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/idLogo" />
+        <Constraint
+            android:id="@+id/idMotDePass"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="378dp"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/idCourriel" />
+        <Constraint
+            android:id="@+id/idLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="114dp"
+            android:layout_height="110dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtMeetUps"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp" />
+        <Constraint
+            android:id="@+id/idSeConnecter"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="164dp"
+            android:layout_height="47dp"
+            app:layout_constraintTop_toBottomOf="@+id/idMotDePass"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp" />
+        <Constraint
+            android:id="@+id/idCreerCompte"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="134dp"
+            android:layout_height="46dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idSeConnecter"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+
+</MotionScene>
