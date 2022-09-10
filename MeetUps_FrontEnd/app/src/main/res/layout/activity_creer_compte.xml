@@ -61,6 +61,15 @@
                 android:padding="15dp"/>
 
             <EditText
+                android:id="@+id/idMotDePass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Mot de pass"
+                android:layout_margin="10dp"
+                android:padding="15dp"/>
+
+            <EditText
                 android:id="@+id/idAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
