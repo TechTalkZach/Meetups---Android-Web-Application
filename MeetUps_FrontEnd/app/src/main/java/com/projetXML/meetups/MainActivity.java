@@ -24,15 +24,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        iLogIn();
+        formI();
         btnClick();
 
     }// OnCreate
 
-    private void iLogIn() {
+    private void formI() {
         userCourriel = findViewById(R.id.idCourriel);
         pass = findViewById(R.id.idMotDePass);
-        btnCreerCompte = findViewById(R.id.idCreerCompte);
+        btnCreerCompte = findViewById(R.id.idCreerCompteLogIn);
         btnSeConnecter = findViewById(R.id.idSeConnecter);
     }
 

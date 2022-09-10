@@ -29,7 +29,7 @@
             android:id="@+id/idSeConnecter"
             android:visibility="invisible"
             app:layout_constraintTop_toBottomOf="@+id/idLogo"
-            app:layout_constraintBottom_toTopOf="@+id/idCreerCompte"
+            app:layout_constraintBottom_toTopOf="@+id/idCreerCompteLogIn"
             app:layout_constraintVertical_bias="1.0" />
         <Constraint
             app:layout_constraintVertical_bias="0.996"
@@ -40,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/idSeConnecter"
-            android:id="@+id/idCreerCompte"
+            android:id="@+id/idCreerCompteLogIn"
             android:visibility="invisible"/>
 
         <Constraint
@@ -113,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="24dp" />
         <Constraint
-            android:id="@+id/idCreerCompte"
+            android:id="@+id/idCreerCompteLogIn"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="134dp"
             android:layout_height="46dp"
