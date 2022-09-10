@@ -2,6 +2,7 @@
     <string name="app_name">MeetUps</string>
 
     <string-array name="education">
+        <item>Faites un choix</item>
         <item>PHD / Doctorat</item>
         <item>Baccalauréat</item>
         <item>Diplôme d\'associé / Certificat</item>
@@ -10,6 +11,7 @@
     </string-array>
 
     <string-array name="religion">
+        <item>Faites un choix</item>
         <item>Chrétien Protestant</item>
         <item>Chrétien Catholique</item>
         <item>Bouddhiste</item>

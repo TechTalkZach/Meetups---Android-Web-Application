@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/idMotDePass" />
 
     <Button
-        android:id="@+id/idCreerCompte"
+        android:id="@+id/idCreerCompteLogIn"
         android:layout_width="134dp"
         android:layout_height="46dp"
         android:background="@drawable/button_shape"
