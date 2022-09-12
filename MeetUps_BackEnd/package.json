@@ -1,0 +1,23 @@
+{
+  "name": "meetups_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "source" : "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js",
+    "build" : "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "node-fetch": "^3.2.10",
+    "nodemon": "^2.0.19",
+    "parcel": "^2.7.0"
+  }
+}
