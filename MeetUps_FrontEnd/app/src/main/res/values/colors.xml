@@ -12,8 +12,9 @@
     <color name="un">#FF5400</color>
     <color name="deux">#FFBD00</color>
 
-    <!--    Couleur button-->
+    <!--    Couleur button et shapes-->
     <color name="button">#9E0059</color>
     <color name="btnColor">#FF1617</color>
+    <color name="shape">#30ffffff</color>
 
 </resources>
