@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_creer_compte">
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,58 +26,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Créer compte"
+                android:text="Rechercher un profil"
                 android:textSize="25dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"/>
-
-            <EditText
-                android:id="@+id/idNom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_shape_trans"
-                android:hint="Nom"
-                android:layout_margin="10dp"
-                android:padding="15dp"/>
-
-            <EditText
-                android:id="@+id/idPrenom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_shape_trans"
-                android:hint="Prenom"
-                android:layout_margin="10dp"
-                android:padding="15dp"/>
-
-            <EditText
-                android:id="@+id/idCourriel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_shape_trans"
-                android:hint="Courriel"
-                android:layout_margin="10dp"
-                android:padding="15dp"/>
-
-            <EditText
-                android:id="@+id/idMotDePass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_shape_trans"
-                android:hint="Mot de pass"
-                android:layout_margin="10dp"
-                android:padding="15dp"/>
-
-            <EditText
-                android:id="@+id/idAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_shape_trans"
-                android:hint="Âge"
-                android:inputType="number"
-                android:layout_margin="10dp"
-                android:padding="15dp"/>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,8 +59,7 @@
                         android:layout_marginLeft="15dp"
                         android:checked="true"
                         android:text="Homme"
-                        android:textSize="18dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:textSize="18dp"/>
 
                     <RadioButton
                         android:id="@+id/idRadioFemme"
@@ -119,20 +67,89 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="Femme"
-                        android:textSize="18dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:textSize="18dp" />
                 </RadioGroup>
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/idGrandeur"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:background="@drawable/edittext_shape_trans"
-                android:hint="Grandeur (cm)"
                 android:layout_margin="10dp"
-                android:inputType="number"
-                android:padding="15dp"/>
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Âge : "
+                    android:textSize="18dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Âge minimun"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/edittext_shape_trans"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="à"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="15dp"
+                    android:padding="5dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Âge maximum"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/edittext_shape_trans"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_shape_trans"
+                android:layout_margin="10dp"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Grandeur : "
+                    android:textSize="18dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Minimun"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/edittext_shape_trans"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="à"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="15dp"
+                    android:padding="5dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Maximum"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/edittext_shape_trans"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -148,8 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/bg_spinner"
-                android:padding="15dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:padding="15dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -293,14 +309,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/submit"
-                android:text="Créer compte"
+                android:text="Chercher profil"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="100dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_shape"/>
-        </LinearLayout>
 
+        </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
