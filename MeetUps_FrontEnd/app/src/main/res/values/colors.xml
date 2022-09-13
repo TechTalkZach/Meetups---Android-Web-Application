@@ -17,4 +17,8 @@
     <color name="btnColor">#FF1617</color>
     <color name="shape">#30ffffff</color>
 
+    <!--    Couleur button pour Oui ou Non-->
+    <color name="btnOui">#80ED99</color>
+    <color name="btnNon">#FF595E</color>
+
 </resources>

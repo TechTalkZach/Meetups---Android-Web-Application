@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_creer_compte">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMeetUps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="cursive"
+                android:text="MeetUps!"
+                android:textSize="60dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Créer compte"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/idNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Nom"
+                android:layout_margin="10dp"
+                android:padding="15dp"/>
+
+            <EditText
+                android:id="@+id/idPrenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Prenom"
+                android:layout_margin="10dp"
+                android:padding="15dp"/>
+
+            <EditText
+                android:id="@+id/idCourriel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Courriel"
+                android:layout_margin="10dp"
+                android:padding="15dp"/>
+
+            <EditText
+                android:id="@+id/idMotDePass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Mot de pass"
+                android:layout_margin="10dp"
+                android:padding="15dp"/>
+
+            <EditText
+                android:id="@+id/idAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Âge"
+                android:inputType="number"
+                android:layout_margin="10dp"
+                android:padding="15dp"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_shape_trans"
+                android:layout_margin="10dp"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sexe : "
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/idRadioGroupSexe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/idRadioHomme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:checked="true"
+                        android:text="Homme"
+                        android:textSize="18dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/idRadioFemme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="Femme"
+                        android:textSize="18dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/idGrandeur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_shape_trans"
+                android:hint="Grandeur (cm)"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:padding="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingLeft="15dp"
+                android:text="Education :"
+                android:textSize="18dp"/>
+
+            <Spinner
+                android:id="@+id/idSpinnerEducation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_spinner"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingLeft="15dp"
+                android:text="Religion :"
+                android:textSize="18dp"/>
+
+            <Spinner
+                android:id="@+id/idSpinnerReligion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="15dp"
+                android:background="@drawable/bg_spinner" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/edittext_shape_trans"
+                android:layout_margin="10dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Situation familiale : "
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/idRadioGroupSituationFamiliale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/idRadioPasEnfantEtVeut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N'a pas d'enfants et en veut"
+                        android:textSize="18dp"
+                        android:checked="true"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioPasEnfantEtNeVeutPas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N'a pas d'enfants et n'en veut pas"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioUnEnfantEtVeut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A un ou plusieurs enfants et en veut pas"
+                        android:textSize="16dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioUnEnfantEtNeVeutPas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A un ou plusiers enfants et n'en veut pas plus"
+                        android:textSize="16dp"
+                        android:layout_marginTop="5dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/edittext_shape_trans"
+                android:layout_margin="10dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mon match idéal : "
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/idRadioGroupMatchIdeal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/idRadioRelationSerieuse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Une relation sérieuse"
+                        android:textSize="18dp"
+                        android:checked="true"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioUneRelation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Une relation"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioAmitieEtPlus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="De l'amitié et qui sais peut-être plus"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioADater"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="À dater pour passer le temps"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/idRadioPasDeBut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N'a pas de but précis"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/submit"
+                android:text="Créer compte"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_shape"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
