@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "source" : "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/index.js",
-    "build" : "parcel build"
+    "start": "node ./src/index.js",
+    "test" : "nodemon ./src/index.js"
   },
   "author": "",
   "license": "ISC",

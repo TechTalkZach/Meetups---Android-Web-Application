@@ -11,10 +11,9 @@ registerRoute.post("/", async (req, res) => {
 
         await insertPublicUser(privateUserID, publicUser)
 
-        res.json({
-            message : "Nouveau compte créée avec succès",
-            data : null
-        })
+        res.statusCode = 200
+        res.statusMessage = "Nouveau compte creer avec succes"
+        res.end()
 
     } catch (errorMessage){
         res.statusCode = 400

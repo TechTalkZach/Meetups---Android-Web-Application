@@ -19,7 +19,7 @@ const COLUMN_MOTDEPASSE = "motDePasse"
         let errorMessage;
 
         if(e.code === "ER_DUP_ENTRY")
-            errorMessage = "Un utilisateur a déjà été créer avec ce courriel"
+            errorMessage = "Un utilisateur a deja ete creer avec ce courriel"
         else
             errorMessage = "erreur dans l'enregistrement"
 
