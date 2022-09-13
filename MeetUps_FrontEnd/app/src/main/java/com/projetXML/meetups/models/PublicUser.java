@@ -2,7 +2,7 @@ package com.projetXML.meetups.models;
 
 import retrofit2.http.Field;
 
-public class User {
+public class PublicUser {
 
         int id;
         String nom;
@@ -15,7 +15,7 @@ public class User {
         String religion;
         String recherche;
 
-    public User(int id, String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche) {
+    public PublicUser(int id, String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -27,6 +27,12 @@ public class User {
         this.religion = religion;
         this.recherche = recherche;
     }
+
+    public PublicUser(String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche) {
+        this(-1, nom, prenom,sexe, age, grandeur, education, situationFamiliale, religion, recherche);
+    }
+
+
 
     public int getId() {
         return id;

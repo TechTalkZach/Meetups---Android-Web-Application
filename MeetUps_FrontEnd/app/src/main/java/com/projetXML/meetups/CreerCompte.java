@@ -6,6 +6,7 @@ import static java.lang.Integer.parseInt;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,7 +19,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.projetXML.meetups.api.RetrofitClient;
+import com.projetXML.meetups.models.PrivateUser;
+import com.projetXML.meetups.models.PublicUser;
+import com.projetXML.meetups.models.RegisterRequestBody;
 
 import java.io.IOException;
 
@@ -38,7 +43,7 @@ public class CreerCompte extends AppCompatActivity {
     EditText idCourriel;
     EditText idAge;
     EditText idGrandeur;
-    //EditText idPass;
+    EditText idPass;
 
     String emptyMsgErr = "Le champ ne peut pas être vide. The field cannot be empty.";
     String CompteCreerOkMsg = "Votre compte a bien été creer! Your account has been created!";
@@ -89,36 +94,39 @@ public class CreerCompte extends AppCompatActivity {
         idAge = findViewById(R.id.idAge);
         idGrandeur = findViewById(R.id.idGrandeur);
         btnSubmit = findViewById(R.id.submit);
-        //idPass = findViewById(R.id.idPass);
+        idPass = findViewById(R.id.idMotDePass);
 
     }//formI
 
     private void registerUser(){
-        //formI2();
-        //int id = id++;
         String nomStrI = idNom.getText().toString().trim();
         String prenomStrI = idNom.getText().toString().trim();
         String sexeStrI = idNom.getText().toString().trim();
-        int AgeStrI = parseInt(idAge.getText().toString());
+        int ageStrI = parseInt(idAge.getText().toString());
         double grandeurDoubI = Double.parseDouble(idGrandeur.getText().toString().trim());
         String educationStrI = idNom.getText().toString().trim();
         String situationFamilialeStrI = idNom.getText().toString().trim();
         String religionStrI = idNom.getText().toString().trim();
-        //String rechercheStrI = idNom.getText().toString().trim();
+        String rechercheStrI = idNom.getText().toString().trim();
+        String courielStrI = idCourriel.getText().toString().trim();
+        String motDePasseStrI = idPass.getText().toString().trim();
+
+        PrivateUser privateUser = new PrivateUser(courielStrI, motDePasseStrI);
+        PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStrI, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI, rechercheStrI);
+        RegisterRequestBody registerRequestBody = new RegisterRequestBody(privateUser, publicUser);
 
         Call<ResponseBody> call = RetrofitClient
                 .getInstance()
                 .getAPI()
-                .createUser(nomStrI, prenomStrI, sexeStrI, AgeStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI);
+                .register(registerRequestBody);
 
         call.enqueue(new Callback<ResponseBody>(){
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody>response){
                 try {
-                    String body = response.body().string();
-                    Toast.makeText(CreerCompte.this, body, Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreerCompte.this, response.message(), Toast.LENGTH_LONG).show();
 
-                }catch (IOException e){
+                }catch (Exception e){
                     e.printStackTrace();
 
                 }
@@ -302,8 +310,6 @@ public class CreerCompte extends AppCompatActivity {
         if(nomValide() & prenomValide() & validEmailI() & validAge() & validGrandeur() & validEdu() & validRelig()){
 
             registerUser();
-
-            alertMsg(CompteCreerOkMsg);
         }
         else{
             alertMsg(errSubmitMsg);

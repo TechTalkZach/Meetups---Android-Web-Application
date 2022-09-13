@@ -4,9 +4,9 @@ public class LogInResponse {
 
     private boolean error;
     private String mesg;
-    private User user;
+    private PublicUser user;
 
-    public LogInResponse(boolean error, String mesg, User user) {
+    public LogInResponse(boolean error, String mesg, PublicUser user) {
         this.error = error;
         this.mesg = mesg;
         this.user = user;
@@ -20,7 +20,7 @@ public class LogInResponse {
         return mesg;
     }
 
-    public User getUser() {
+    public PublicUser getUser() {
         return user;
     }
 }

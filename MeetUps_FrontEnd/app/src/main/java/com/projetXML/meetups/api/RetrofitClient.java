@@ -1,11 +1,13 @@
 package com.projetXML.meetups.api;
 
+import com.google.gson.Gson;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String Base_URL = "http://00..";
+    private static final String Base_URL = "https://meetups01.herokuapp.com/";
     private static RetrofitClient mInstance;
     private Retrofit retrofit;
 
