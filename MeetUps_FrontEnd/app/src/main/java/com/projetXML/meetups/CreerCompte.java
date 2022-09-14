@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,10 +36,11 @@ import retrofit2.Response;
 
 public class CreerCompte extends AppCompatActivity {
 
+    //spinners
     Spinner spinnerEducation;
     Spinner spinnerReligion;
 
-    Button btnSubmit;
+    //Text Input
     EditText idNom;
     EditText idPrenom;
     EditText idCourriel;
@@ -45,6 +48,11 @@ public class CreerCompte extends AppCompatActivity {
     EditText idGrandeur;
     EditText idPass;
 
+    //Button
+    Button btnSubmit;
+
+
+    //String msgs
     String emptyMsgErr = "Le champ ne peut pas être vide. The field cannot be empty.";
     String CompteCreerOkMsg = "Votre compte a bien été creer! Your account has been created!";
     String errSubmitMsg = "attention erreur(s). Attention error(s).";
@@ -88,31 +96,97 @@ public class CreerCompte extends AppCompatActivity {
     }//btnClick
 
      private void formI2() {
-        idNom = findViewById(R.id.idNom);
-        idPrenom = findViewById(R.id.idPrenom);
-        idCourriel = findViewById(R.id.idCourriel);
-        idAge = findViewById(R.id.idAge);
-        idGrandeur = findViewById(R.id.idGrandeur);
-        btnSubmit = findViewById(R.id.submit);
-        idPass = findViewById(R.id.idMotDePass);
+        //Inputs findViewById
+         idNom = findViewById(R.id.idNom);
+         idPrenom = findViewById(R.id.idPrenom);
+         idCourriel = findViewById(R.id.idCourriel);
+         idPass = findViewById(R.id.idMotDePass);
+         idAge = findViewById(R.id.idAge);
+         idGrandeur = findViewById(R.id.idGrandeur);
+
+         //Button findViewById
+         btnSubmit = findViewById(R.id.submit);
 
     }//formI
 
+    private String getRadioBtnGrSexe(){
+        RadioButton radioButtonHomme = findViewById(R.id.idRadioHomme);
+
+        if(radioButtonHomme.isChecked()){
+            return "M";
+
+        }else{
+            return "F";
+        }
+    }//radioBtnGrSexe
+
+    private String getRadioBtnSituationFamiliale(){
+        RadioButton radioButtonHomme = findViewById(R.id.idRadioHomme);
+
+        if(radioButtonHomme.isChecked()){
+            return "M";
+
+        }else{
+            return "F";
+        }
+    }//radioBtnGrSexe
+
+    private String getRadioBtnRecherche(){
+        RadioButton idRadioPasEnfantEtVeut = findViewById(R.id.idRadioPasEnfantEtVeut);
+        RadioButton idRadioPasEnfantEtNeVeutPas = findViewById(R.id.idRadioPasEnfantEtNeVeutPas);
+        RadioButton idRadioUnEnfantEtVeut = findViewById(R.id.idRadioUnEnfantEtVeut);
+        //RadioButton idRadioUnEnfantEtNeVeutPas = findViewById(R.id.idRadioUnEnfantEtNeVeutPas);
+
+
+        if(idRadioPasEnfantEtVeut.isChecked()){
+            return "N'a pas d'enfants et en veut";
+
+        }
+        else if(idRadioPasEnfantEtNeVeutPas.isChecked()){
+            return "N'a pas d'enfants et n'en veut pas";
+
+        }
+        else if(idRadioUnEnfantEtVeut.isChecked()){
+            return "A un ou plusieurs enfants et en veut plus";
+
+        }
+        else {
+            return "A un ou plusiers enfants et n'en veut pas plus";
+        }
+
+    }//getRadioBtnRecherche()
+
     private void registerUser(){
+
+        //Inputs text toString()
         String nomStrI = idNom.getText().toString().trim();
-        String prenomStrI = idNom.getText().toString().trim();
-        String sexeStrI = idNom.getText().toString().trim();
-        int ageStrI = parseInt(idAge.getText().toString());
-        double grandeurDoubI = Double.parseDouble(idGrandeur.getText().toString().trim());
-        String educationStrI = idNom.getText().toString().trim();
-        String situationFamilialeStrI = idNom.getText().toString().trim();
-        String religionStrI = idNom.getText().toString().trim();
-        String rechercheStrI = idNom.getText().toString().trim();
+        String prenomStrI = idPrenom.getText().toString().trim();
         String courielStrI = idCourriel.getText().toString().trim();
         String motDePasseStrI = idPass.getText().toString().trim();
 
+        //Input Numbers toString()
+        int ageStrI = parseInt(idAge.getText().toString());
+        double grandeurDoubI = Double.parseDouble(idGrandeur.getText().toString().trim());
+
+        //Input Spinners toString()
+        String religionStrI = spinnerReligion.getSelectedView().toString();
+        String educationStrI = spinnerEducation.getSelectedView().toString();
+
+        //Input RadioButtons choice toString()
+        String sexeStrI = getRadioBtnGrSexe();
+        System.out.println(sexeStrI);
+
+        String situationFamilialeStrI = getRadioBtnSituationFamiliale();
+        System.out.println(situationFamilialeStrI);
+
+        String rechercheStrI = getRadioBtnRecherche();
+        System.out.println(rechercheStrI);
+        //-------------------------------------------------------------------
+
+        //Objets privateUser & publicUser
         PrivateUser privateUser = new PrivateUser(courielStrI, motDePasseStrI);
         PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStrI, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI, rechercheStrI);
+
         RegisterRequestBody registerRequestBody = new RegisterRequestBody(privateUser, publicUser);
 
         Call<ResponseBody> call = RetrofitClient
@@ -138,6 +212,8 @@ public class CreerCompte extends AppCompatActivity {
             }
             });
     }//registerUser
+
+
 
     public void alertMsg(String message){
         AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
@@ -243,6 +319,28 @@ public class CreerCompte extends AppCompatActivity {
 
     }//validEmailI
 
+    boolean passValide(){
+        String motDePasseStr = idPass.getText().toString().trim();
+
+        // At least 5 caracters and up to 8 & least 1 number
+        String passRegex ="^(?=.*\\d).{5,8}$";
+
+
+        if (isEmpty(idPass)) {
+            idPass.setError(emptyMsgErr);
+            return false;
+        }
+        else if (!motDePasseStr.matches(passRegex)) {
+            idPass.setError("Entrez un mot de passe valide. Enter a valid password.");
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }//passValide
+
+
     boolean validAge() {
 
         if (isEmpty(idAge)) {
@@ -259,7 +357,7 @@ public class CreerCompte extends AppCompatActivity {
         else {
             return true;
         }
-    }
+    }//validAge()
 
     boolean validGrandeur() {
 
@@ -277,7 +375,7 @@ public class CreerCompte extends AppCompatActivity {
         else {
             return true;
         }
-    }
+    }//validGrandeur()
 
     boolean validEdu() {
 
@@ -307,9 +405,11 @@ public class CreerCompte extends AppCompatActivity {
 
     void formValidation() {
 
-        if(nomValide() & prenomValide() & validEmailI() & validAge() & validGrandeur() & validEdu() & validRelig()){
+        if(nomValide() & prenomValide() & validEmailI() & passValide() & validAge() & validGrandeur() & validEdu() & validRelig()){
 
             registerUser();
+            alertMsg(CompteCreerOkMsg);
+
         }
         else{
             alertMsg(errSubmitMsg);

@@ -596,6 +596,8 @@
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="btnColor">#FF1617</color>
+    <color name="btnNon">#FF595E</color>
+    <color name="btnOui">#80ED99</color>
     <color name="button">#9E0059</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
@@ -5819,6 +5821,7 @@
     <item name="windowNoTitle">true</item>
   </style>
     <style name="Theme.MeetUps" parent="Theme.AppCompat.DayNight.NoActionBar">
+            <item name="buttonStyle">@style/myButton</item>
         
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -5830,6 +5833,7 @@
         
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         
+
     </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
@@ -8028,6 +8032,9 @@
   </style>
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
+    </style>
+    <style name="myButton" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
     </style>
     <declare-styleable name="ActionBar">
         

@@ -4,6 +4,8 @@ array education
 array religion
 color black
 color btnColor
+color btnNon
+color btnOui
 color button
 color deux
 color purple_200
@@ -18,6 +20,8 @@ drawable background_connexion
 drawable background_creer_compte
 drawable bg_creer_compte
 drawable bg_spinner
+drawable button_non
+drawable button_oui
 drawable button_shape
 drawable edittext_shape
 drawable edittext_shape_trans
@@ -27,6 +31,13 @@ drawable ic_launcher_foreground
 drawable ic_pass
 drawable ic_user
 drawable logo_meetups
+drawable maria
+id btnDetails
+id btnMatchs
+id btnMonProfil
+id btnNon
+id btnOui
+id btnRechercherProfil
 id end
 id idAge
 id idCourriel
@@ -57,12 +68,15 @@ id start
 id submit
 id tvConnexion
 id txtMeetUps
+layout activity_accueil
 layout activity_creer_compte
 layout activity_main
+layout activity_rechercher_profil
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
 style Theme.MeetUps
+style myButton
 xml activity_main_scene
 xml backup_rules
 xml data_extraction_rules

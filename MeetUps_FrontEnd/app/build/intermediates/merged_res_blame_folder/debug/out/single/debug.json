@@ -28,6 +28,10 @@
         "source": "com.projetXML.meetups.app-main-31:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_maria.jpg.flat",
+        "source": "com.projetXML.meetups.app-main-31:/drawable/maria.jpg"
+    },
+    {
         "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_creer_compte.xml.flat",
         "source": "com.projetXML.meetups.app-main-31:/layout/activity_creer_compte.xml"
     },
@@ -40,8 +44,16 @@
         "source": "com.projetXML.meetups.app-main-31:/drawable/ic_launcher_background.xml"
     },
     {
+        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_rechercher_profil.xml.flat",
+        "source": "com.projetXML.meetups.app-main-31:/layout/activity_rechercher_profil.xml"
+    },
+    {
         "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_background_connexion.xml.flat",
         "source": "com.projetXML.meetups.app-main-31:/drawable/background_connexion.xml"
+    },
+    {
+        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_accueil.xml.flat",
+        "source": "com.projetXML.meetups.app-main-31:/layout/activity_accueil.xml"
     },
     {
         "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-hdpi_ic_launcher_round.webp.flat",
@@ -50,6 +62,10 @@
     {
         "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "com.projetXML.meetups.app-main-31:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_oui.xml.flat",
+        "source": "com.projetXML.meetups.app-main-31:/drawable/button_oui.xml"
     },
     {
         "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_ic_user.xml.flat",
@@ -90,6 +106,10 @@
     {
         "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "com.projetXML.meetups.app-main-31:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_non.xml.flat",
+        "source": "com.projetXML.meetups.app-main-31:/drawable/button_non.xml"
     },
     {
         "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_main.xml.flat",

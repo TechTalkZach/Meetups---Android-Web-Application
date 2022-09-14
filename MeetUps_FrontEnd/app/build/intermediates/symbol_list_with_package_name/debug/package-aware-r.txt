@@ -1216,6 +1216,8 @@ color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
 color btnColor
+color btnNon
+color btnOui
 color button
 color button_material_dark
 color button_material_light
@@ -2463,6 +2465,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable button_non
+drawable button_oui
 drawable button_shape
 drawable design_fab_background
 drawable design_ic_visibility
@@ -2494,6 +2498,7 @@ drawable m3_tabs_background
 drawable m3_tabs_line_indicator
 drawable m3_tabs_rounded_line_indicator
 drawable m3_tabs_transparent_background
+drawable maria
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2629,6 +2634,12 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnDetails
+id btnMatchs
+id btnMonProfil
+id btnNon
+id btnOui
+id btnRechercherProfil
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3136,8 +3147,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_accueil
 layout activity_creer_compte
 layout activity_main
+layout activity_rechercher_profil
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -4408,6 +4421,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style myButton
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
