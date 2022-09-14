@@ -5,7 +5,7 @@ MeetUps_Backend/node_modules
 
 
 #For frontend
-MeetUps_FrontEnd/.gradle/
+MeetUps_FrontEnd/.gradle
 MeetUps_FrontEnd/build/
 MeetUps_FrontEnd/local.properties
 MeetUps_FrontEnd/*.log
