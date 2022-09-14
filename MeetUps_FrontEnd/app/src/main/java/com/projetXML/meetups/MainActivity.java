@@ -7,22 +7,29 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+import com.projetXML.meetups.api.RetrofitClient;
+import com.projetXML.meetups.models.LoginResponse;
+import com.projetXML.meetups.models.PrivateUser;
+import com.projetXML.meetups.state.AuthState;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText idCourriel;
-    EditText idPass;
+    EditText userCourriel;
+    EditText pass;
     Button btnCreerCompte;
     Button btnSeConnecter;
-
-    //String msgs
-    String emptyMsgErr = "Le champ ne peut pas être vide. The field cannot be empty.";
-    String errSubmitMsg = "attention erreur(s). Attention error(s).";
-    String PageProfil = "ok redirect page aimer profil ou non";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }// OnCreate
 
     private void formI() {
-        idCourriel = findViewById(R.id.idCourriel);
-        idPass = findViewById(R.id.idMotDePass);
+        userCourriel = findViewById(R.id.idCourriel);
+        pass = findViewById(R.id.idMotDePass);
         btnCreerCompte = findViewById(R.id.idCreerCompteLogIn);
         btnSeConnecter = findViewById(R.id.idSeConnecter);
     }
@@ -58,87 +65,104 @@ public class MainActivity extends AppCompatActivity {
         });
     }//btnClick
 
-    public void alertMsg(String message){
-        AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Alerte");
-
-        alertDialogBuilder.setMessage(message);
-        alertDialogBuilder.setCancelable(false);
-
-
-        alertDialogBuilder.setNeutralButton("Ok",new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog,int which){
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog alertDialog=alertDialogBuilder.create();
-        alertDialog.show();
-    }//alertMsg
+    boolean validEmailI(EditText text) {
+        CharSequence userCourriel = text.getText().toString();
+        return (!TextUtils.isEmpty(userCourriel) && Patterns.EMAIL_ADDRESS.matcher(userCourriel).matches());
+    }
 
     boolean isEmpty(EditText text) {
         CharSequence input = text.getText().toString();
         return TextUtils.isEmpty(input);
     }
 
-
-    boolean validEmailI() {
-
-        String courrielStr = idCourriel.getText().toString().trim();
-
-
-        if (isEmpty(idCourriel)) {
-            idCourriel.setError(emptyMsgErr);
-            return false;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(courrielStr).matches()){
-            idCourriel.setError("Entrez un courriel valide. Enter a valid email!");
-            return false;
-        }
-        else {
-            return true;
-        }
-
-    }//validEmailI
-
-
-    boolean passValide(){
-        String motDePasseStr = idPass.getText().toString().trim();
-
-        // At least 5 caracters and up to 8 & least 1 number
-        String passRegex ="^(?=.*\\d).{5,8}$";
-
-
-        if (isEmpty(idPass)) {
-            idPass.setError(emptyMsgErr);
-            return false;
-        }
-        else if (!motDePasseStr.matches(passRegex)) {
-            idPass.setError("Entrez un mot de passe valide. Enter a valid password.");
-            return false;
-        }
-        else {
-            return true;
-        }
-
-    }//passValide
-
-
     void checkLogInI() {
+        boolean isValid = true;
 
-        if(validEmailI() & passValide()){
+        if (isEmpty(userCourriel)) {
+            userCourriel.setError("Champ ne peut pas être vide. Field cannot be empty.");
+            isValid = false;
+        } else {
+            if (!validEmailI(userCourriel)) {
+                userCourriel.setError("Entrez un courriel valide. Enter a valid email!");
+                isValid = false;
+            }
+        }
 
-            //Redirection
-            Intent redirectPage = new Intent(MainActivity.this, HomePage.class);
-            startActivity(redirectPage);
-            this.finish();
+        if (isEmpty(pass)) {
+            pass.setError("Champ ne peut pas être vide. Field cannot be empty.");
+            isValid = false;
+        } else {
+            if (pass.getText().toString().length() < 5) {
+                pass.setError("Mot de passe doit avoir au moins 5 caractères. Password must have at least 5 chars long");
+                isValid = false;
+            }
+        }
+
+        if (isValid) {
+            String userNameI = userCourriel.getText().toString().trim();
+            String passI = pass.getText().toString().trim();
+            PrivateUser privateUser = new PrivateUser(userNameI, passI);
+
+            Log.d("app", new Gson().toJson(privateUser));
+
+
+
+            Call<LoginResponse> call = RetrofitClient
+                    .getInstance()
+                    .getAPI()
+                    .login(privateUser);
+
+            call.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+
+                    if(response.code() == 200){
+                        //Enregistrer le idUser dans authState
+                        AuthState.setMyID(response.body().getIdUser());
+
+                        //Navigate to home page
+                        navigateToHomePage();
+
+                    } else {
+                        showAlert(response.message());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                   showAlert(t.getMessage());
+                }
+            });
+
+
 
         }
-        else{
-            alertMsg(errSubmitMsg);
-        }
+    }// checkLogInI
 
-    }// formCompletion
+    private void navigateToHomePage(){
+        Intent intent = new Intent();
+        startActivity(intent);
+    }
+
+
+    private void showAlert(String message){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Alerte");
+
+        alertDialogBuilder.setMessage(message);
+        alertDialogBuilder.setCancelable(false);
+
+
+        alertDialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
 
 }// MainActivity

@@ -1,7 +1,6 @@
 package com.projetXML.meetups.models;
 
 public class PrivateUser {
-
     private int idUser;
     private String courriel;
     private String motDePasse;

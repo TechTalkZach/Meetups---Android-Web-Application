@@ -1,6 +1,7 @@
 
 const {connectionPromise} = require("./dbConfig")
 
+const TABLE_NAME = "privateUser"
 const COLUMN_COURRIEL = "courriel"
 const COLUMN_MOTDEPASSE = "motDePasse"
 
@@ -27,7 +28,25 @@ const COLUMN_MOTDEPASSE = "motDePasse"
     }
 }
 
+async function getPrivateUser(courriel){
+    try{
+        const connection = await connectionPromise
+        const query = `SELECT * FROM ${TABLE_NAME} WHERE ${COLUMN_COURRIEL} = ?;`
+
+        const [row] = await connection.query(query, [courriel])
+
+        if(row.length === 0)
+            return null
+        else
+            return row[0]
+
+    } catch(e){
+        throw "Erreur lors de la connexion"
+    }
+}
+
 module.exports = {
-    insertPrivateUser
+    insertPrivateUser,
+    getPrivateUser
 }
 

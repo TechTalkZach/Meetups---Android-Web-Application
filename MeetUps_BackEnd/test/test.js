@@ -1,7 +1,9 @@
+const { getPrivateUser } = require('../src/database/privateUserTable');
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const url = "https://meetups01.herokuapp.com"
+const testURL = "http://localhost:4000"
 
 const privateUser = {
     courriel: "caven.kathiresu5@gmail.com",
@@ -21,7 +23,8 @@ const publicUser = {
 }
 
 async function test1(){
-    console.log(await fetch(url))
+    const response = await getPrivateUser("caven")
+    console.log(response)
 }
 
 async function test(){
@@ -31,10 +34,10 @@ async function test(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-        body: JSON.stringify({publicUser, privateUser}) 
+        body: JSON.stringify(privateUser) 
     }
 
-    const response = await fetch(url + "/register", options)
+    const response = await fetch(url + "/login", options)
 
     console.log(response.status)
 
