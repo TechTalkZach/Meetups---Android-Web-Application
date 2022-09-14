@@ -99,49 +99,47 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (isValid) {
-            String userNameI = userCourriel.getText().toString().trim();
-            String passI = pass.getText().toString().trim();
-            PrivateUser privateUser = new PrivateUser(userNameI, passI);
-
-            Log.d("app", new Gson().toJson(privateUser));
-
-
-
-            Call<LoginResponse> call = RetrofitClient
-                    .getInstance()
-                    .getAPI()
-                    .login(privateUser);
-
-            call.enqueue(new Callback<LoginResponse>() {
-                @Override
-                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-
-                    if(response.code() == 200){
-                        //Enregistrer le idUser dans authState
-                        AuthState.setMyID(response.body().getIdUser());
-
-                        //Navigate to home page
-                        navigateToHomePage();
-
-                    } else {
-                        showAlert(response.message());
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<LoginResponse> call, Throwable t) {
-                   showAlert(t.getMessage());
-                }
-            });
-
-
-
+          login();
         }
     }// checkLogInI
 
+    private void login(){
+        String userNameI = userCourriel.getText().toString().trim();
+        String passI = pass.getText().toString().trim();
+        PrivateUser privateUser = new PrivateUser(userNameI, passI);
+
+        Call<LoginResponse> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .login(privateUser);
+
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+
+                if(response.code() == 200){
+                    //Enregistrer le idUser dans authState
+                    AuthState.setMyID(response.body().getIdUser());
+
+                    //Navigate to home page
+                    navigateToHomePage();
+
+                } else {
+                    showAlert(response.message());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                showAlert(t.getMessage());
+            }
+        });
+
+    }
+
     private void navigateToHomePage(){
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
 

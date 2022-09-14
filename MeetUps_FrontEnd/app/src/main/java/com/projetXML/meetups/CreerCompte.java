@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,17 @@ public class CreerCompte extends AppCompatActivity {
     EditText idAge;
     EditText idGrandeur;
     EditText idPass;
+    RadioButton radioButtonHomme;
+    RadioButton idRadioPasEnfantEtVeut;
+    RadioButton idRadioPasEnfantEtNeVeutPas;
+    RadioButton idRadioUnEnfantEtVeut;
+    RadioButton idRadioRelationSerieuse;
+    RadioButton idRadioUneRelation;
+    RadioButton idRadioAmitieEtPlus;
+    RadioButton idRadioADater;
+    RadioButton idRadioPasDeBut;
+
+
 
     String emptyMsgErr = "Le champ ne peut pas être vide. The field cannot be empty.";
     String CompteCreerOkMsg = "Votre compte a bien été creer! Your account has been created!";
@@ -95,21 +107,81 @@ public class CreerCompte extends AppCompatActivity {
         idGrandeur = findViewById(R.id.idGrandeur);
         btnSubmit = findViewById(R.id.submit);
         idPass = findViewById(R.id.idMotDePass);
+        radioButtonHomme = findViewById(R.id.idRadioHomme);
+        idRadioPasEnfantEtVeut = findViewById(R.id.idRadioPasEnfantEtVeut);
+        idRadioPasEnfantEtNeVeutPas = findViewById(R.id.idRadioPasEnfantEtNeVeutPas);
+        idRadioUnEnfantEtVeut = findViewById(R.id.idRadioUnEnfantEtVeut);
+        idRadioRelationSerieuse = findViewById(R.id.idRadioRelationSerieuse);
+        idRadioUneRelation = findViewById(R.id.idRadioUneRelation);
+         idRadioAmitieEtPlus = findViewById(R.id.idRadioAmitieEtPlus);
+         idRadioADater = findViewById(R.id.idRadioADater);
+         idRadioPasDeBut = findViewById(R.id.idRadioPasDeBut);
 
-    }//formI
+
+     }//formI
+
+    private String getRadioBtnGrSexe(){
+        if(radioButtonHomme.isChecked())
+            return "H";
+        else
+            return "F";
+    }//radioBtnGrSexe
+
+    private String getRadioBtnSituationFamiliale(){
+        if(idRadioPasEnfantEtVeut.isChecked()){
+            return "N'a pas d'enfants et en veut";
+
+        }
+        else if(idRadioPasEnfantEtNeVeutPas.isChecked()){
+            return "N'a pas d'enfants et n'en veut pas";
+
+        }
+        else if(idRadioUnEnfantEtVeut.isChecked()){
+            return "A un ou plusieurs enfants et en veut plus";
+
+        }
+        else {
+            return "A un ou plusiers enfants et n'en veut pas plus";
+        }
+    }//getRadioSituationFamiliale
+
+    private String getMatchIdeale(){
+        if(idRadioRelationSerieuse.isChecked())
+            return "Une relation serieuse";
+
+        if(idRadioUneRelation.isChecked())
+            return "Une relation";
+
+        if(idRadioAmitieEtPlus.isChecked())
+            return "De l'amitie et qui sais peut-etre plus";
+
+        if(idRadioADater.isChecked())
+            return "A dater pour passer le temps";
+
+        return "N'a pas de but precis";
+    }
+
+
 
     private void registerUser(){
+        //Inputs text toString()
         String nomStrI = idNom.getText().toString().trim();
-        String prenomStrI = idNom.getText().toString().trim();
-        String sexeStrI = idNom.getText().toString().trim();
-        int ageStrI = parseInt(idAge.getText().toString());
-        double grandeurDoubI = Double.parseDouble(idGrandeur.getText().toString().trim());
-        String educationStrI = idNom.getText().toString().trim();
-        String situationFamilialeStrI = idNom.getText().toString().trim();
-        String religionStrI = idNom.getText().toString().trim();
-        String rechercheStrI = idNom.getText().toString().trim();
+        String prenomStrI = idPrenom.getText().toString().trim();
         String courielStrI = idCourriel.getText().toString().trim();
         String motDePasseStrI = idPass.getText().toString().trim();
+
+        //Input Numbers toString()
+        int ageStrI = parseInt(idAge.getText().toString());
+        double grandeurDoubI = Double.parseDouble(idGrandeur.getText().toString().trim());
+
+        //Input Spinners toString()
+        String religionStrI = spinnerReligion.getSelectedItem().toString();
+        String educationStrI = spinnerEducation.getSelectedItem().toString();
+
+        //Input RadioButtons choice toString()
+        String sexeStrI = getRadioBtnGrSexe();
+        String situationFamilialeStrI = getRadioBtnSituationFamiliale();
+        String rechercheStrI = getMatchIdeale();
 
         PrivateUser privateUser = new PrivateUser(courielStrI, motDePasseStrI);
         PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStrI, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI, rechercheStrI);
@@ -124,10 +196,16 @@ public class CreerCompte extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody>call, Response<ResponseBody>response){
                 try {
-                    Toast.makeText(CreerCompte.this, response.message(), Toast.LENGTH_LONG).show();
+                    if(response.code() == 200){
+                        Toast.makeText(CreerCompte.this, response.message(), Toast.LENGTH_LONG).show();
+                        finish();
+                    } else{
+                        alertMsg(response.message());
+                    }
 
                 }catch (Exception e){
                     e.printStackTrace();
+                    alertMsg(e.getMessage());
 
                 }
             }

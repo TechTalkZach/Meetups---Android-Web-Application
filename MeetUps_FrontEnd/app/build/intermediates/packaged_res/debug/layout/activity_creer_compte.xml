@@ -250,7 +250,7 @@
                         android:id="@+id/idRadioRelationSerieuse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Une relation sérieuse"
+                        android:text="Une relation serieuse"
                         android:textSize="18dp"
                         android:checked="true"
                         android:layout_marginTop="5dp"/>
@@ -267,7 +267,7 @@
                         android:id="@+id/idRadioAmitieEtPlus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="De l'amitié et qui sais peut-être plus"
+                        android:text="De l'amitie et qui sais peut-etre plus"
                         android:textSize="18dp"
                         android:layout_marginTop="5dp"/>
 
@@ -275,7 +275,7 @@
                         android:id="@+id/idRadioADater"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="À dater pour passer le temps"
+                        android:text="A dater pour passer le temps"
                         android:textSize="18dp"
                         android:layout_marginTop="5dp"/>
 
@@ -283,7 +283,7 @@
                         android:id="@+id/idRadioPasDeBut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="N'a pas de but précis"
+                        android:text="N'a pas de but precis"
                         android:textSize="18dp"
                         android:layout_marginTop="5dp"/>
                 </RadioGroup>

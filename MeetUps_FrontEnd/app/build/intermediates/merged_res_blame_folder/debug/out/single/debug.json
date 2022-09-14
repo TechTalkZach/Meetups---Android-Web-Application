@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\layout_activity_rechercher_profil.xml.flat",
+        "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\layout\\activity_rechercher_profil.xml"
+    },
+    {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_background_creer_compte.png.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\background_creer_compte.png"
     },
@@ -28,16 +32,16 @@
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-pngs-24:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_maria.jpg.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/maria.jpg"
-    },
-    {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_creer_compte.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/layout/activity_creer_compte.xml"
+        "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\layout_activity_accueil.xml.flat",
+        "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\layout\\activity_accueil.xml"
+    },
+    {
+        "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_maria.jpg.flat",
+        "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\maria.jpg"
     },
     {
         "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_rechercher_profil.xml.flat",
@@ -50,10 +54,6 @@
     {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\xml_activity_main_scene.xml.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\xml\\activity_main_scene.xml"
-    },
-    {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_accueil.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/layout/activity_accueil.xml"
     },
     {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -72,10 +72,6 @@
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\edittext_shape_trans.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_oui.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/button_oui.xml"
-    },
-    {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
@@ -92,6 +88,10 @@
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\ic_pass.xml"
     },
     {
+        "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_button_oui.xml.flat",
+        "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\button_oui.xml"
+    },
+    {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_bg_creer_compte.png.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\bg_creer_compte.png"
     },
@@ -106,10 +106,6 @@
     {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_logo_meetups.png.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\logo_meetups.png"
-    },
-    {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_non.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/button_non.xml"
     },
     {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
@@ -142,5 +138,9 @@
     {
         "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-29:\\drawable_button_non.xml.flat",
+        "source": "C:\\Users\\caven\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-31:\\drawable\\button_non.xml"
     }
 ]

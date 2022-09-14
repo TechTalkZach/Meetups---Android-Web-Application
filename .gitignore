@@ -5,21 +5,21 @@ MeetUps_Backend/node_modules
 
 
 #For frontend
-MeetUps_FronEnd/.gradle/
-MeetUps_FronEnd/build/
-MeetUps_FronEnd/local.properties
-MeetUps_FronEnd/*.log
-MeetUps_FronEnd/captures/
-MeetUps_FronEnd/.externalNativeBuild/
-MeetUps_FronEnd/.cxx/
-MeetUps_FronEnd/*.apk
-MeetUps_FronEnd/output.json
-MeetUps_FronEnd/*.iml
-MeetUps_FronEnd/.idea/
-MeetUps_FronEnd/misc.xml
-MeetUps_FronEnd/deploymentTargetDropDown.xml
-MeetUps_FronEnd/render.experimental.xml
-MeetUps_FronEnd/*.jks
-MeetUps_FronEnd/*.keystore
-MeetUps_FronEnd/google-services.json
-MeetUps_FronEnd/*.hprof
+MeetUps_FrontEnd/.gradle/
+MeetUps_FrontEnd/build/
+MeetUps_FrontEnd/local.properties
+MeetUps_FrontEnd/*.log
+MeetUps_FrontEnd/captures/
+MeetUps_FrontEnd/.externalNativeBuild/
+MeetUps_FrontEnd/.cxx/
+MeetUps_FrontEnd/*.apk
+MeetUps_FrontEnd/output.json
+MeetUps_FrontEnd/*.iml
+MeetUps_FrontEnd/.idea/
+MeetUps_FrontEnd/misc.xml
+MeetUps_FrontEnd/deploymentTargetDropDown.xml
+MeetUps_FrontEnd/render.experimental.xml
+MeetUps_FrontEnd/*.jks
+MeetUps_FrontEnd/*.keystore
+MeetUps_FrontEnd/google-services.json
+MeetUps_FrontEnd/*.hprof
