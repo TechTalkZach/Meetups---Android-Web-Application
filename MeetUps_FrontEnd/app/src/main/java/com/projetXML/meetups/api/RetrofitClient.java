@@ -9,7 +9,7 @@ public class RetrofitClient {
 
     private static final String Base_URL = "https://meetups01.herokuapp.com/";
     private static RetrofitClient mInstance;
-    private Retrofit retrofit;
+    private static Retrofit retrofit;
 
     private RetrofitClient(){
         retrofit = new Retrofit.Builder()

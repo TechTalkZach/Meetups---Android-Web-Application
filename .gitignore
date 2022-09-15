@@ -1,2 +1,25 @@
 .DS_Store
+
+#For backend
 MeetUps_Backend/node_modules
+
+
+#For frontend
+MeetUps_FrontEnd/.gradle
+MeetUps_FrontEnd/build/
+MeetUps_FrontEnd/local.properties
+MeetUps_FrontEnd/*.log
+MeetUps_FrontEnd/captures/
+MeetUps_FrontEnd/.externalNativeBuild/
+MeetUps_FrontEnd/.cxx/
+MeetUps_FrontEnd/*.apk
+MeetUps_FrontEnd/output.json
+MeetUps_FrontEnd/*.iml
+MeetUps_FrontEnd/.idea/
+MeetUps_FrontEnd/misc.xml
+MeetUps_FrontEnd/deploymentTargetDropDown.xml
+MeetUps_FrontEnd/render.experimental.xml
+MeetUps_FrontEnd/*.jks
+MeetUps_FrontEnd/*.keystore
+MeetUps_FrontEnd/google-services.json
+MeetUps_FrontEnd/*.hprof

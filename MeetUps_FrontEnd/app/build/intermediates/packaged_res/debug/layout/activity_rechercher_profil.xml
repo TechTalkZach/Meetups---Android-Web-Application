@@ -17,34 +17,34 @@
                 android:id="@+id/txtMeetUps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="24dp"
                 android:fontFamily="cursive"
                 android:text="MeetUps!"
-                android:textSize="60dp"
-                android:layout_gravity="center"/>
+                android:textSize="60dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rechercher un profil"
-                android:textSize="25dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:text="Rechercher un profil"
+                android:textSize="25dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/edittext_shape_trans"
                 android:layout_margin="10dp"
+                android:background="@drawable/edittext_shape_trans"
+                android:orientation="horizontal"
                 android:padding="14dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Sexe : "
-                    android:textSize="18dp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="18dp" />
 
                 <RadioGroup
                     android:id="@+id/idRadioGroupSexe"
@@ -59,7 +59,7 @@
                         android:layout_marginLeft="15dp"
                         android:checked="true"
                         android:text="Homme"
-                        android:textSize="18dp"/>
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioFemme"
@@ -74,80 +74,80 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/edittext_shape_trans"
                 android:layout_margin="10dp"
+                android:background="@drawable/edittext_shape_trans"
+                android:orientation="horizontal"
                 android:padding="14dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Âge : "
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Âge minimun"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/edittext_shape_trans"
-                    android:padding="5dp"/>
+                    android:hint="Âge minimun"
+                    android:padding="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="à"
-                    android:textSize="18dp"
                     android:layout_marginLeft="15dp"
-                    android:padding="5dp"/>
+                    android:padding="5dp"
+                    android:text="à"
+                    android:textSize="18dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Âge maximum"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/edittext_shape_trans"
-                    android:padding="5dp"/>
+                    android:hint="Âge maximum"
+                    android:padding="5dp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/edittext_shape_trans"
                 android:layout_margin="10dp"
+                android:background="@drawable/edittext_shape_trans"
+                android:orientation="horizontal"
                 android:padding="14dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Grandeur : "
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Minimun"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/edittext_shape_trans"
-                    android:padding="5dp"/>
+                    android:hint="Minimun"
+                    android:padding="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="à"
-                    android:textSize="18dp"
                     android:layout_marginLeft="15dp"
-                    android:padding="5dp"/>
+                    android:padding="5dp"
+                    android:text="à"
+                    android:textSize="18dp" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Maximum"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/edittext_shape_trans"
-                    android:padding="5dp"/>
+                    android:hint="Maximum"
+                    android:padding="5dp" />
 
             </LinearLayout>
 
@@ -157,7 +157,7 @@
                 android:layout_margin="10dp"
                 android:paddingLeft="15dp"
                 android:text="Education :"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/idSpinnerEducation"
@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/bg_spinner"
-                android:padding="15dp"/>
+                android:padding="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -173,31 +173,31 @@
                 android:layout_margin="10dp"
                 android:paddingLeft="15dp"
                 android:text="Religion :"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/idSpinnerReligion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:padding="15dp"
-                android:background="@drawable/bg_spinner" />
+                android:background="@drawable/bg_spinner"
+                android:padding="15dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/edittext_shape_trans"
                 android:layout_margin="10dp"
+                android:background="@drawable/edittext_shape_trans"
+                android:orientation="vertical"
                 android:padding="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Situation familiale : "
-                    android:textSize="18dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:text="Situation familiale : "
+                    android:textSize="18dp" />
 
                 <RadioGroup
                     android:id="@+id/idRadioGroupSituationFamiliale"
@@ -209,52 +209,52 @@
                         android:id="@+id/idRadioPasEnfantEtVeut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="N'a pas d'enfants et en veut"
-                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
                         android:checked="true"
-                        android:layout_marginTop="5dp"/>
+                        android:text="N'a pas d'enfants et en veut"
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioPasEnfantEtNeVeutPas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="N'a pas d'enfants et n'en veut pas"
-                        android:textSize="18dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioUnEnfantEtVeut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="A un ou plusieurs enfants et en veut plus"
-                        android:textSize="16dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="16dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioUnEnfantEtNeVeutPas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="A un ou plusiers enfants et n'en veut pas plus"
-                        android:textSize="16dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="16dp" />
                 </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/edittext_shape_trans"
                 android:layout_margin="10dp"
+                android:background="@drawable/edittext_shape_trans"
+                android:orientation="vertical"
                 android:padding="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mon match idéal : "
-                    android:textSize="18dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:text="Mon match idéal : "
+                    android:textSize="18dp" />
 
                 <RadioGroup
                     android:id="@+id/idRadioGroupMatchIdeal"
@@ -266,56 +266,56 @@
                         android:id="@+id/idRadioRelationSerieuse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Une relation sérieuse"
-                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
                         android:checked="true"
-                        android:layout_marginTop="5dp"/>
+                        android:text="Une relation sérieuse"
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioUneRelation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Une relation"
-                        android:textSize="18dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioAmitieEtPlus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="De l'amitié et qui sais peut-être plus"
-                        android:textSize="18dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioADater"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="À dater pour passer le temps"
-                        android:textSize="18dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="18dp" />
 
                     <RadioButton
                         android:id="@+id/idRadioPasDeBut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="N'a pas de but précis"
-                        android:textSize="18dp"
-                        android:layout_marginTop="5dp"/>
+                        android:textSize="18dp" />
                 </RadioGroup>
             </LinearLayout>
 
             <Button
+                android:id="@+id/submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/submit"
-                android:text="Chercher profil"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="100dp"
-                android:layout_gravity="center"
-                android:background="@drawable/button_shape"/>
+                android:background="@drawable/button_shape"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="Chercher profil" />
 
         </LinearLayout>
     </ScrollView>
