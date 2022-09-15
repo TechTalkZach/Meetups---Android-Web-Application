@@ -139,8 +139,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateToHomePage(){
-        Intent intent = new Intent(this, HomePage.class);
+        Intent intent = new Intent(this, Accueil.class);
         startActivity(intent);
+
+        //TODO HERE PUT THE ACCUEIL REIRECTION 1ST PAGE
+
+
     }
 
 
