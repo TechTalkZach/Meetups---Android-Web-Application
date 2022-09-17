@@ -184,7 +184,7 @@ public class CreerCompte extends AppCompatActivity {
         String rechercheStrI = getMatchIdeale();
 
         PrivateUser privateUser = new PrivateUser(courielStrI, motDePasseStrI);
-        PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStrI, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI, rechercheStrI);
+        PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStrI, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI, rechercheStrI, null);
         RegisterRequestBody registerRequestBody = new RegisterRequestBody(privateUser, publicUser);
 
         Call<ResponseBody> call = RetrofitClient
