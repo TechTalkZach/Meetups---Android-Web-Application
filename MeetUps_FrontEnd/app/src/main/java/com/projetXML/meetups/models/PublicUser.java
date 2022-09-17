@@ -14,8 +14,9 @@ public class PublicUser {
         String situationFamiliale;
         String religion;
         String recherche;
+        String photoProfilURL;
 
-    public PublicUser(int id, String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche) {
+    public PublicUser(int id, String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche, String photoProfilURL) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -26,10 +27,11 @@ public class PublicUser {
         this.situationFamiliale = situationFamiliale;
         this.religion = religion;
         this.recherche = recherche;
+        this.photoProfilURL = photoProfilURL;
     }
 
-    public PublicUser(String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche) {
-        this(-1, nom, prenom,sexe, age, grandeur, education, situationFamiliale, religion, recherche);
+    public PublicUser(String nom, String prenom, String sexe, int age, double grandeur, String education, String situationFamiliale, String religion, String recherche, String photoProfilURL) {
+        this(-1, nom, prenom,sexe, age, grandeur, education, situationFamiliale, religion, recherche, photoProfilURL);
     }
 
 
