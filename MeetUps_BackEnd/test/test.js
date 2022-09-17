@@ -6,7 +6,7 @@ const url = "https://meetups01.herokuapp.com"
 const testURL = "http://localhost:4000"
 
 const privateUser = {
-    courriel: "caven.kathiresu5@gmail.com",
+    courriel: "caven.kathiresu51@gmail.com",
     motDePasse : "caven1223"
 }
 
@@ -19,12 +19,13 @@ const publicUser = {
     situationFamiliale : "en couple",
     religion : "chrétien",
     recherche : "rien",
-    prenom : "kathiresu"
+    prenom : "kathiresu",
+    photoProfilURL : "www.url.com"
 }
 
 async function test1(){
-    const response = await getPrivateUser("caven")
-    console.log(response)
+    const response = await fetch(testURL + "/availableProfile?idUser=2")
+    console.log(await response.text())
 }
 
 async function test(){
@@ -34,10 +35,10 @@ async function test(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-        body: JSON.stringify(privateUser) 
+        body: JSON.stringify({privateUser, publicUser}) 
     }
 
-    const response = await fetch(url + "/login", options)
+    const response = await fetch(testURL + "/register", options)
 
     console.log(response.status)
 
@@ -46,7 +47,6 @@ async function test(){
 
     console.log(response.statusText)
 
-
 }
 
-test()
+test1()
