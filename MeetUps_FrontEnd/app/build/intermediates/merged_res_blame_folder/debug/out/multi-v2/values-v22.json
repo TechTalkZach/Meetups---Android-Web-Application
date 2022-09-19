@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.projetXML.meetups.app-mergeDebugResources-27:/values-v22/values-v22.xml",
+            "outputFile": "com.projetXML.meetups.app-mergeDebugResources-28:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\caven\\.gradle\\caches\\transforms-3\\48e56c303e0d31753f46166d8e551339\\transformed\\appcompat-1.5.1\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\caches\\transforms-3\\48e56c303e0d31753f46166d8e551339\\transformed\\appcompat-1.5.1\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

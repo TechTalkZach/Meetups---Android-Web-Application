@@ -1,142 +1,174 @@
 [
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_bg_creer_compte.png.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/bg_creer_compte.png"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\xml_activity_main_scene.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\xml\\activity_main_scene.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_bg_spinner.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/bg_spinner.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_logo_meetups.png.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\logo_meetups.png"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_ic_pass.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/ic_pass.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_edittext_shape_trans.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\edittext_shape_trans.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.projetXML.meetups.app-merged_res-30:/layout_activity_main.xml.flat",
+        "source": "com.projetXML.meetups.app-main-32:/layout/activity_main.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_bg_spinner.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\bg_spinner.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_maria.jpg.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/maria.jpg"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_background_connexion.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\background_connexion.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_creer_compte.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/layout/activity_creer_compte.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\layout_activity_accueil.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\layout\\activity_accueil.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_rechercher_profil.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/layout/activity_rechercher_profil.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_background_connexion.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/background_connexion.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_edittext_shape.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\edittext_shape.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_accueil.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/layout/activity_accueil.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_roundbtn.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\roundbtn.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_oui.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/button_oui.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_ic_user.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/ic_user.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_swipe.png.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_swipe.png"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_logo_meetups.png.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/logo_meetups.png"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_bg_creer_compte.png.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\bg_creer_compte.png"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_edittext_shape.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/edittext_shape.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_arrow_down.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_arrow_down.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_ic_arrow_down.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/ic_arrow_down.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_maria.jpg.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\maria.jpg"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/xml_data_extraction_rules.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\layout_activity_profil_utilisateur.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\layout\\activity_profil_utilisateur.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_background_creer_compte.png.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/background_creer_compte.png"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_button_non.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\button_non.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_button_oui.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\button_oui.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_non.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/button_non.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-pngs-25:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/layout_activity_main.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/xml_backup_rules.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.projetXML.meetups.app-main-31:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_pass.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_pass.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_button_shape.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/button_shape.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/xml_activity_main_scene.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/xml/activity_main_scene.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\layout_activity_rechercher_profil.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\layout\\activity_rechercher_profil.xml"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.projetXML.meetups.app-pngs-24:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_interets.png.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\interets.png"
     },
     {
-        "merged": "com.projetXML.meetups.app-merged_res-29:/drawable_edittext_shape_trans.xml.flat",
-        "source": "com.projetXML.meetups.app-main-31:/drawable/edittext_shape_trans.xml"
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_heart_broken.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_heart_broken.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_check.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_user.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_ic_inbox.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\ic_inbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_background_creer_compte.png.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\background_creer_compte.png"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\layout_activity_creer_compte.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\layout\\activity_creer_compte.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-merged_res-30:\\drawable_button_shape.xml.flat",
+        "source": "C:\\Users\\Ana Hernandez Smith\\.gradle\\daemon\\7.3.3\\com.projetXML.meetups.app-main-32:\\drawable\\button_shape.xml"
     }
 ]

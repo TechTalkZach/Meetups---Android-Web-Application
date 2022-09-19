@@ -23,6 +23,6 @@ public class Utilities {
         });
 
         AlertDialog alertDialog=alertDialogBuilder.create();
-        alertDialog.show();
+        //alertDialog.show();
     }
 }

@@ -1,6 +1,6 @@
 package com.projetXML.meetups.models;
 
-import retrofit2.http.Field;
+import androidx.annotation.NonNull;
 
 public class PublicUser {
 
@@ -74,5 +74,11 @@ public class PublicUser {
 
     public String getRecherche() {
         return recherche;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + prenom +" " + nom +" " + prenom ;
     }
 }

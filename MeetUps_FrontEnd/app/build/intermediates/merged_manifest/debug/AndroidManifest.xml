@@ -36,7 +36,7 @@
             android:name="com.projetXML.meetups.CreerCompte"
             android:exported="true" />
         <activity
-            android:name="com.projetXML.meetups.HomePage"
+            android:name="com.projetXML.meetups.Accueil"
             android:exported="true" />
 
         <provider

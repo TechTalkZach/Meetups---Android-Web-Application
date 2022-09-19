@@ -5,12 +5,12 @@
       <map>
         <entry key="..\:/Users/Ana Hernandez Smith/Desktop/projetXml/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_creer_compte.xml" value="0.4" />
         <entry key="..\:/Users/Ana Hernandez Smith/Desktop/projetXml/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_main.xml" value="0.264" />
-<<<<<<< HEAD
-        <entry key="..\:/Users/caven/Desktop/ProjetXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_creer_compte.xml" value="0.26721014492753625" />
-        <entry key="..\:/Users/caven/Desktop/ProjetXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_main.xml" value="0.16296296296296298" />
-=======
+        <entry key="..\:/Users/Ana Hernandez Smith/Desktop/registerBranch/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_accueil.xml" value="0.1" />
+        <entry key="..\:/Users/Ana Hernandez Smith/Desktop/registerBranch/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_creer_compte.xml" value="0.20885416666666667" />
+        <entry key="..\:/Users/Ana Hernandez Smith/Desktop/registerBranch/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Ana Hernandez Smith/Desktop/registerBranch/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_profil_utilisateur.xml" value="0.1" />
+        <entry key="..\:/Users/Ana Hernandez Smith/Desktop/registerBranch/applicationCoursXML/MeetUps_FrontEnd/app/src/main/res/layout/activity_rechercher_profil.xml" value="0.20885416666666667" />
         <entry key="app/src/main/res/drawable/background_connexion.xml" value="0.1725" />
->>>>>>> 5597776908a70a3f9fa73931a0e833ba1ba12f53
         <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/button_oui.xml" value="0.1725" />
         <entry key="app/src/main/res/drawable/button_rond.xml" value="0.1725" />
