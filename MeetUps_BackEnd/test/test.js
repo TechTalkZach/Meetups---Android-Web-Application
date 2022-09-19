@@ -23,8 +23,15 @@ const publicUser = {
     photoProfilURL : "www.url.com"
 }
 
+const like = {
+    fromIdUser: 15,
+    toIdUser : 16,
+    liked: false
+}
+
 async function test1(){
-    const response = await fetch(testURL + "/availableProfile?idUser=2")
+    const response = await fetch(testURL + "/profile?idUser=2")
+    console.log(response.status)
     console.log(await response.text())
 }
 
@@ -35,15 +42,15 @@ async function test(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-        body: JSON.stringify({privateUser, publicUser}) 
+        body: JSON.stringify(like) 
     }
 
-    const response = await fetch(testURL + "/register", options)
+    const response = await fetch(testURL + "/likeProfile", options)
 
     console.log(response.status)
 
-    if(response.status === 200)
-        console.log(await response.json())
+    // if(response.status === 200)
+    //     console.log(await response.json())
 
     console.log(response.statusText)
 

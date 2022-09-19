@@ -8,20 +8,30 @@ likeProfileRoute.post("/", async (req, res) => {
 
         const {fromIdUser, toIdUser, liked} = req.body
         
-        if(!fromIdUser || !toIdUser || !liked){
-            res.status = 400
+        if(
+            fromIdUser == undefined || 
+            toIdUser == undefined || 
+            liked == undefined 
+        ){
+            res.statusCode = 400
             res.statusMessage = "Champs manquants pour l'insertion du like"
             res.end()
             return
         }
 
         await insertLikes(req.body)
+
+        res.statusCode = 200
+        res.statusMessage = "Like inserer avec success"
+        res.end()
         
     } catch (errorMessage){
-        res.status = 400
+        res.statusCode = 400
         res.statusMessage = errorMessage
         res.end()
     }
-
-
 })
+
+module.exports = {
+    likeProfileRoute
+}

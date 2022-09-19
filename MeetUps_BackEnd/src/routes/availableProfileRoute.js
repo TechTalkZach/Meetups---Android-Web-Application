@@ -1,5 +1,5 @@
 const express = require("express")
-const { getAvailablePublicUsers } = require("../database/publicUserTable")
+const {getAvailablePublicUsers} = require("../database/storedProcedure")
 
 const availableProfile = express.Router()
 
