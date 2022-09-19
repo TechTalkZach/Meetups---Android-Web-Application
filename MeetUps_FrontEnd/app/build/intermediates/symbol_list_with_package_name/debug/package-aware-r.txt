@@ -257,6 +257,10 @@ attr circularflow_defaultAngle
 attr circularflow_defaultRadius
 attr circularflow_radiusInDP
 attr circularflow_viewCenter
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clearsTag
 attr clickAction
 attr clockFaceBackgroundColor
@@ -2476,7 +2480,10 @@ drawable design_snackbar_background
 drawable edittext_shape
 drawable edittext_shape_trans
 drawable ic_arrow_down
+drawable ic_check
 drawable ic_clock_black_24dp
+drawable ic_heart_broken
+drawable ic_inbox
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -2488,7 +2495,9 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_pass
+drawable ic_swipe
 drawable ic_user
+drawable interets
 drawable logo_meetups
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
@@ -2532,6 +2541,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable roundbtn
 drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -2661,6 +2671,7 @@ id chip2
 id chip3
 id chip_group
 id chronometer
+id circleImageView
 id circle_center
 id clear_text
 id clip_horizontal
@@ -2792,6 +2803,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id info
@@ -3005,6 +3017,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3150,6 +3163,7 @@ layout abc_tooltip
 layout activity_accueil
 layout activity_creer_compte
 layout activity_main
+layout activity_profil_utilisateur
 layout activity_rechercher_profil
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -4453,6 +4467,7 @@ styleable Carousel carousel_backwardTransition carousel_emptyViewsBehavior carou
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

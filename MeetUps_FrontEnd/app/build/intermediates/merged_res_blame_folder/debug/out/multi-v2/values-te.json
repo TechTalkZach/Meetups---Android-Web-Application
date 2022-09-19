@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.projetXML.meetups.app-mergeDebugResources-27:/values-te/values-te.xml",
+            "outputFile": "com.projetXML.meetups.app-mergeDebugResources-28:/values-te/values-te.xml",
             "map": [
                 {
                     "source": "C:\\Users\\caven\\.gradle\\caches\\transforms-3\\cd33f26b4f6a5be75c2c675ec5e179dc\\transformed\\core-1.8.0\\res\\values-te\\values-te.xml",

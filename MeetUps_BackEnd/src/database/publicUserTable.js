@@ -1,5 +1,4 @@
 const { connectionPromise } = require("./dbConfig")
-const likesTable = require("./likesTable")
 
 const TABLE_NAME = "publicUser"
 const COLUMN_ID = "id"
@@ -55,27 +54,32 @@ async function insertPublicUser(id, {nom, sexe, age, grandeur, education, situat
     
 }
 
-// Function to get all user profiles that the user didn't liked or dislikes
-async function getAvailablePublicUsers(idUser){
+async function getPublicUser(idUser){
     try{
-        const query = `SELECT * FROM ${TABLE_NAME}
-            WHERE ${COLUMN_ID} != ?
-            AND ${COLUMN_ID} NOT IN (
-                SELECT ${likesTable.COLUMN_TOIDUSER}
-                FROM ${likesTable.TABLE_NAME}
-                WHERE ${likesTable.COLUMN_FROMIDUSER} = ?
-            )`
+        const query = `
+            SELECT *
+            FROM ${TABLE_NAME}
+            WHERE ${COLUMN_ID} = ?
+        `
 
         const connection = await connectionPromise
-        const [row] = await connection.query(query, [idUser, idUser])
+        const [row] = await connection.query(query, [idUser])
 
-        return row
+        if(row.length === 0)
+            return null
+        
+        return row[0]
 
     } catch (e){
-        throw "Erreur lors de la recherche des profils"
+        throw "Erreur lors de l'obtention du public user"
     }
 }
 
+
+
 module.exports = {
-    insertPublicUser, getAvailablePublicUsers
+    TABLE_NAME,
+    COLUMN_ID,
+    insertPublicUser,
+    getPublicUser
 }

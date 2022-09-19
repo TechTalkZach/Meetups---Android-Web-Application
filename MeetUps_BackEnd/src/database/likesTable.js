@@ -1,6 +1,5 @@
 const { connectionPromise } = require("./dbConfig")
 
-
 const TABLE_NAME = "likes"
 const COLUMN_FROMIDUSER = "fromIdUser"
 const COLUMN_TOIDUSER = "toIdUser"
@@ -23,6 +22,9 @@ async function insertLikes({fromIdUser, toIdUser, liked}){
         throw "Erreur lors de l'insertion du like"
     }
 }
+
+
+
 
 module.exports ={
     TABLE_NAME,

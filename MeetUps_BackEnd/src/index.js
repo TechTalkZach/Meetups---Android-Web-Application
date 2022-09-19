@@ -1,6 +1,9 @@
 const express = require("express")
 const { availableProfile } = require("./routes/availableProfileRoute")
+const { likeProfileRoute } = require("./routes/likeProfileRoute")
 const { loginRoute } = require("./routes/loginRoute")
+const { matchRoute } = require("./routes/matchRoute")
+const { profileRoute } = require("./routes/profleRoute")
 const { registerRoute } = require("./routes/registerRoute")
 
 
@@ -16,6 +19,9 @@ app.get("/", (req, res)=>{
 app.use("/register", registerRoute)
 app.use("/login", loginRoute)
 app.use("/availableProfile", availableProfile)
+app.use("/likeProfile", likeProfileRoute)
+app.use("/myMatch", matchRoute)
+app.use("/profile", profileRoute)
 
 app.listen(port, ()=> console.log(`App listening on port ${port}`))
 
