@@ -1,9 +1,13 @@
+
 package com.projetXML.meetups;
 
-import android.os.Bundle;
+        import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD:MeetUps_FrontEnd/app/src/main/java/com/projetXML/meetups/Accueil.java
+public class Accueil extends AppCompatActivity {
+=======
 import com.projetXML.meetups.api.RetrofitClient;
 import com.projetXML.meetups.models.PublicUser;
 import com.projetXML.meetups.state.AuthState;
@@ -16,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomePage extends AppCompatActivity {
+>>>>>>> c649f49ca43c0dd01d32bd009fdec7cb6e586e0c:MeetUps_FrontEnd/app/src/main/java/com/projetXML/meetups/HomePage.java
 
     List<PublicUser> list;
     int currentIndex = 0;
@@ -25,9 +30,13 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
+<<<<<<< HEAD:MeetUps_FrontEnd/app/src/main/java/com/projetXML/meetups/Accueil.java
+        //code for call to
+=======
         getAvailableProfile();
 
 
+>>>>>>> c649f49ca43c0dd01d32bd009fdec7cb6e586e0c:MeetUps_FrontEnd/app/src/main/java/com/projetXML/meetups/HomePage.java
     }// OnCreate
 
     //Function to get all available profile on the server
