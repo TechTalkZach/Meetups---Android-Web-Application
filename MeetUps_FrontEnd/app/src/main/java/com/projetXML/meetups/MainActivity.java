@@ -1,28 +1,27 @@
 package com.projetXML.meetups;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.gson.Gson;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.projetXML.meetups.api.RetrofitClient;
 import com.projetXML.meetups.models.LoginResponse;
 import com.projetXML.meetups.models.PrivateUser;
 import com.projetXML.meetups.state.AuthState;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+
 
 public class MainActivity extends AppCompatActivity {
 

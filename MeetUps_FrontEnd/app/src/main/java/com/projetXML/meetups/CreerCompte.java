@@ -1,12 +1,11 @@
 package com.projetXML.meetups;
 
-import static java.lang.Character.getType;
 import static java.lang.Integer.parseInt;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,13 +19,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
 import com.projetXML.meetups.api.RetrofitClient;
 import com.projetXML.meetups.models.PrivateUser;
 import com.projetXML.meetups.models.PublicUser;
 import com.projetXML.meetups.models.RegisterRequestBody;
-
-import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -35,31 +31,47 @@ import retrofit2.Response;
 
 public class CreerCompte extends AppCompatActivity {
 
+    //Spinners inputs
     Spinner spinnerEducation;
     Spinner spinnerReligion;
 
-    Button btnSubmit;
-    EditText idNom;
-    EditText idPrenom;
-    EditText idCourriel;
-    EditText idAge;
-    EditText idGrandeur;
-    EditText idPass;
-    RadioButton radioButtonHomme;
-    RadioButton idRadioPasEnfantEtVeut;
-    RadioButton idRadioPasEnfantEtNeVeutPas;
-    RadioButton idRadioUnEnfantEtVeut;
-    RadioButton idRadioRelationSerieuse;
-    RadioButton idRadioUneRelation;
-    RadioButton idRadioAmitieEtPlus;
-    RadioButton idRadioADater;
-    RadioButton idRadioPasDeBut;
+    //Edit texts inputs
+    EditText nomFv;
+    EditText prenomFv;
+    EditText courrielFv;
+    EditText passFv;
+    EditText ageFv;
+    EditText grandeurFv;
 
+    //Button
+    Button btnSubmitFv;
 
+    //sexe radioButtons
+    RadioButton radioButtonHFv;
+    RadioButton radioButtonFFv;
 
+    //Situation familiale radioButtons
+    RadioButton radioPasEnfantEtVeutFv;
+    RadioButton radioPasEnfantEtNeVeutPasPlusFv;
+    RadioButton radioUnEnfantOuPlusEtVeutPlusFv;
+    RadioButton radioUnEnfantOuPlusEtNeVeutPasPlusFv;
+
+    //Recherche radioButtons
+    RadioButton radioRelationSerieuseFv;
+    RadioButton radioUneRelationFv;
+    RadioButton radioAmitieEtPlusFv;
+    RadioButton radioADaterFv;
+    RadioButton radioPasDeButFv;
+
+    //Strings messages
     String emptyMsgErr = "Le champ ne peut pas être vide. The field cannot be empty.";
     String CompteCreerOkMsg = "Votre compte a bien été creer! Your account has been created!";
     String errSubmitMsg = "attention erreur(s). Attention error(s).";
+
+    String errValidity= "Svp faire une saisie valide. Please enter a valid input";
+
+    //RadioButtons exceptions
+    String errExcNullRadioButtonChoice ="Ni l'un ni l'autre des buttons radios a été choisi.";
 
 
     @Override
@@ -67,8 +79,14 @@ public class CreerCompte extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creer_compte);
 
-        formI2();
-        btnClick2();
+        spinnersChoiceDisplays();
+        findViewsByIds();
+        setBtnSubmit();
+
+
+    }// onCreate
+
+    private void spinnersChoiceDisplays() {
 
         //<Spinner
         spinnerEducation = findViewById(R.id.idSpinnerEducation);
@@ -87,104 +105,163 @@ public class CreerCompte extends AppCompatActivity {
 
         //Spinner>
 
+    }//btnSpinners()
 
-    }// onCreate
-
-    private void btnClick2() {
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+    private void setBtnSubmit() {
+        btnSubmitFv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                formValidation();
+                try {
+                    formValidation();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
-    }//btnClick
+    }//setBtnSubmit()
 
-     private void formI2() {
-        idNom = findViewById(R.id.idNom);
-        idPrenom = findViewById(R.id.idPrenom);
-        idCourriel = findViewById(R.id.idCourriel);
-        idAge = findViewById(R.id.idAge);
-        idGrandeur = findViewById(R.id.idGrandeur);
-        btnSubmit = findViewById(R.id.submit);
-        idPass = findViewById(R.id.idMotDePass);
-        radioButtonHomme = findViewById(R.id.idRadioHomme);
-        idRadioPasEnfantEtVeut = findViewById(R.id.idRadioPasEnfantEtVeut);
-        idRadioPasEnfantEtNeVeutPas = findViewById(R.id.idRadioPasEnfantEtNeVeutPas);
-        idRadioUnEnfantEtVeut = findViewById(R.id.idRadioUnEnfantEtVeut);
-        idRadioRelationSerieuse = findViewById(R.id.idRadioRelationSerieuse);
-        idRadioUneRelation = findViewById(R.id.idRadioUneRelation);
-         idRadioAmitieEtPlus = findViewById(R.id.idRadioAmitieEtPlus);
-         idRadioADater = findViewById(R.id.idRadioADater);
-         idRadioPasDeBut = findViewById(R.id.idRadioPasDeBut);
+     private void findViewsByIds() {
+
+        //Texts inputs findViewByIds
+        nomFv = findViewById(R.id.idNom);
+        prenomFv = findViewById(R.id.idPrenom);
+        courrielFv = findViewById(R.id.idCourriel);
+        passFv = findViewById(R.id.idMotDePass);
+        ageFv = findViewById(R.id.idAge);
+        grandeurFv = findViewById(R.id.idGrandeur);
+
+        //Button findViewByIds
+        btnSubmitFv = findViewById(R.id.submit);
 
 
-     }//formI
+        //-----------RadioButtons findViewByIds-----------
 
-    private String getRadioBtnGrSexe(){
-        if(radioButtonHomme.isChecked())
+        //sexe findViewByIds
+        radioButtonHFv = findViewById(R.id.idRadioHomme);
+        radioButtonFFv = findViewById(R.id.idRadioFemme);
+
+        //Situation familiale findViewByIds
+        radioPasEnfantEtVeutFv = findViewById(R.id.idRadioPasEnfantEtVeut);
+        radioPasEnfantEtNeVeutPasPlusFv = findViewById(R.id.idRadioPasEnfantEtNeVeutPas);
+        radioUnEnfantOuPlusEtVeutPlusFv = findViewById(R.id.idRadioUnEnfantEtVeut);
+        radioUnEnfantOuPlusEtNeVeutPasPlusFv = findViewById(R.id.idRadioUnEnfantEtNeVeutPas);
+
+        //Recherche findViewByIds
+        radioRelationSerieuseFv = findViewById(R.id.idRadioRelationSerieuse);
+        radioUneRelationFv = findViewById(R.id.idRadioUneRelation);
+        radioAmitieEtPlusFv = findViewById(R.id.idRadioAmitieEtPlus);
+        radioADaterFv = findViewById(R.id.idRadioADater);
+        radioPasDeButFv = findViewById(R.id.idRadioPasDeBut);
+        
+     }//findViewByIds()
+
+    public void alertMsg(String message){
+        AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Alerte");
+
+        alertDialogBuilder.setMessage(message);
+        alertDialogBuilder.setCancelable(false);
+
+
+        alertDialogBuilder.setNeutralButton("Ok",new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog,int which){
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alertDialog=alertDialogBuilder.create();
+        alertDialog.show();
+    }//alertMsg()
+
+
+    private String getRadioBtnSexe() throws Exception{
+
+        if(radioButtonHFv.isChecked()){
             return "H";
-        else
+        }
+        else if(radioButtonFFv.isChecked()){
             return "F";
-    }//radioBtnGrSexe
+        }
+        else{
+            throw new Exception(errExcNullRadioButtonChoice);
+        }
 
-    private String getRadioBtnSituationFamiliale(){
-        if(idRadioPasEnfantEtVeut.isChecked()){
+    }//getRadioBtnSexe()
+
+    private String getRadioBtnSituationFamiliale() throws Exception {
+
+        if (radioPasEnfantEtVeutFv.isChecked()) {
             return "N'a pas d'enfants et en veut";
 
-        }
-        else if(idRadioPasEnfantEtNeVeutPas.isChecked()){
+        } else if (radioPasEnfantEtNeVeutPasPlusFv.isChecked()) {
             return "N'a pas d'enfants et n'en veut pas";
 
-        }
-        else if(idRadioUnEnfantEtVeut.isChecked()){
+        } else if (radioUnEnfantOuPlusEtVeutPlusFv.isChecked()) {
             return "A un ou plusieurs enfants et en veut plus";
 
-        }
-        else {
+        } else if (radioUnEnfantOuPlusEtNeVeutPasPlusFv.isChecked()) {
             return "A un ou plusiers enfants et n'en veut pas plus";
         }
-    }//getRadioSituationFamiliale
+        else{
+            throw new Exception(errExcNullRadioButtonChoice);
+        }
 
-    private String getMatchIdeale(){
-        if(idRadioRelationSerieuse.isChecked())
+    }//getRadioBtnSituationFamiliale()
+
+    private String getMatchIdealeAkaRecherche() throws Exception{
+        if(radioRelationSerieuseFv.isChecked())
+        {
             return "Une relation serieuse";
+        }
 
-        if(idRadioUneRelation.isChecked())
+        else if(radioUneRelationFv.isChecked())
+        {
             return "Une relation";
+        }
 
-        if(idRadioAmitieEtPlus.isChecked())
+        else if(radioAmitieEtPlusFv.isChecked())
+        {
             return "De l'amitie et qui sais peut-etre plus";
+        }
 
-        if(idRadioADater.isChecked())
+        else if(radioADaterFv.isChecked())
+        {
             return "A dater pour passer le temps";
+        }
 
-        return "N'a pas de but precis";
-    }
+        else if(radioPasDeButFv.isChecked())
+        {
+            return "N'a pas de but precis";
+        }
+        else{
+            throw new Exception(errExcNullRadioButtonChoice);
+        }
 
+    }//getMatchIdealeAkaRecherche()
 
-
-    private void registerUser(){
+    private void registerUser() throws Exception {
         //Inputs text toString()
-        String nomStrI = idNom.getText().toString().trim();
-        String prenomStrI = idPrenom.getText().toString().trim();
-        String courielStrI = idCourriel.getText().toString().trim();
-        String motDePasseStrI = idPass.getText().toString().trim();
+        String nomStrI = nomFv.getText().toString().trim();
+        String prenomStrI = prenomFv.getText().toString().trim();
+        String courielStrI = courrielFv.getText().toString().trim();
+        String motDePasseStrI = passFv.getText().toString().trim();
 
         //Input Numbers toString()
-        int ageStrI = parseInt(idAge.getText().toString());
-        double grandeurDoubI = Double.parseDouble(idGrandeur.getText().toString().trim());
+        int ageStrI = parseInt(ageFv.getText().toString());
+        double grandeurDoubI = Double.parseDouble(grandeurFv.getText().toString().trim());
 
         //Input Spinners toString()
         String religionStrI = spinnerReligion.getSelectedItem().toString();
         String educationStrI = spinnerEducation.getSelectedItem().toString();
 
         //Input RadioButtons choice toString()
-        String sexeStrI = getRadioBtnGrSexe();
-        String situationFamilialeStrI = getRadioBtnSituationFamiliale();
-        String rechercheStrI = getMatchIdeale();
+        String sexeStr = getRadioBtnSexe();
+        String situationFamilialeStr = getRadioBtnSituationFamiliale();
+        String matchIdealeAkaRechercheStr = getMatchIdealeAkaRecherche();
 
         PrivateUser privateUser = new PrivateUser(courielStrI, motDePasseStrI);
-        PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStrI, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStrI, religionStrI, rechercheStrI, null);
+        PublicUser publicUser = new PublicUser(nomStrI, prenomStrI, sexeStr, ageStrI, grandeurDoubI, educationStrI, situationFamilialeStr, religionStrI, matchIdealeAkaRechercheStr, null);
         RegisterRequestBody registerRequestBody = new RegisterRequestBody(privateUser, publicUser);
 
         Call<ResponseBody> call = RetrofitClient
@@ -217,102 +294,117 @@ public class CreerCompte extends AppCompatActivity {
             });
     }//registerUser
 
-    public void alertMsg(String message){
-        AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Alerte");
 
-        alertDialogBuilder.setMessage(message);
-        alertDialogBuilder.setCancelable(false);
-
-
-        alertDialogBuilder.setNeutralButton("Ok",new DialogInterface.OnClickListener(){
-            @Override
-                    public void onClick(DialogInterface dialog,int which){
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog alertDialog=alertDialogBuilder.create();
-        alertDialog.show();
-    }//alertMsg
-
-
-    //Validation methods------------------------------------
-
+    //------------------------------------Validation methods------------------------------------
 
     //Converting to string & kk if empty: true
     boolean isEmpty(EditText text) {
         CharSequence input = text.getText().toString().trim();
+
+        //returns true or false
         return TextUtils.isEmpty(input);
-    }
+    }//isEmpty()
 
-    boolean nomValide() {
-        String nomStr = idNom.getText().toString().trim();
+    boolean nomValide() throws Exception {
+        String nomStr = nomFv.getText().toString().trim();
 
-        // At least 2 caracters and up to 40, 2 or more letters, can be 0 or 1x -,', whitespace, if ' has to have a letter afterwards.
-        String nomVal = "^(?=.{2,40}$)[a-zA-Z]{2,}(?:[-'\\s][a-zA-Z]+)*$";
+        // At least 2 caracters and up to 40, 2 or more letters, can be 0 or 1x -,', if has ' ,then has to have a letter afterwards.
+        String regexNom = "^(?=.{2,40}$)[a-zA-Z]{2,}(?:[-'\\s][a-zA-Z]+)*$";
 
-        //TextInputLayout txtLayOutNom = (TextInputLayout) findViewById(R.id.idNom);
+        if((!isEmpty(nomFv)) & (nomStr.matches(regexNom))){
 
+            //OK
+            nomFv.setError(null);
 
-        if (isEmpty(idNom)) {
-            idNom.setError(emptyMsgErr);
-            return false;
-
-        }
-        else if (!nomStr.matches(nomVal)) {
-            idNom.setError("Svp entrer un prénom valide. Please enter a valid name");
-            return false;
-        }
-        else {
-            // ok
-            idNom.setError(null);
             //txtLayOutNom.setErrorEnabled(false);
 
             return true;
         }
-    } //nomValide
 
-    boolean prenomValide() {
+        else if((isEmpty(nomFv)) & (!nomStr.matches(regexNom))){
 
-        String prenomStr = idPrenom.getText().toString().trim();
+            nomFv.setError(emptyMsgErr + " " + errValidity);
 
-        // At least 2 caracters and up to 40, 2 or more letters, can be 0 or 1x -,', whitespace, if ' has to have a letter afterwards.
-        String prenomVal = "^(?=.{2,40}$)[a-zA-Z]{2,}(?:[-'\\s][a-zA-Z]+)*$";
+            //txtLayOutNom.setErrorEnabled(false);
 
-        //TextInputLayout txtLayOutPrenom = (TextInputLayout) findViewById(R.id.idPrenom);
-
-        if (isEmpty(idPrenom)) {
-            idPrenom.setError(emptyMsgErr);
             return false;
 
         }
-        else if (!prenomStr.matches(prenomVal)) {
-            idPrenom.setError("Svp entrer un prénom valide. Please enter a valid name");
+        else if((isEmpty(nomFv)) || (!nomStr.matches(regexNom))){
+
+            if((isEmpty(nomFv))){
+                nomFv.setError(emptyMsgErr);
+                return false;
+            }
+            else if((!nomStr.matches(regexNom))){
+                nomFv.setError(errValidity);
+                return false;
+            }
             return false;
         }
         else {
-            // ok
-            idPrenom.setError(null);
-            //txtLayOutPrenom.setErrorEnabled(false);
+            throw new Exception("Error on nom field");
+        }
+
+    } //nomValide
+
+    boolean prenomValide() throws Exception {
+
+        String prenomStr = prenomFv.getText().toString().trim();
+
+        // At least 2 caracters and up to 40, 2 or more letters, can be 0 or 1x -,', whitespace, if ' has to have a letter afterwards.
+        String regexPrenom = "^(?=.{2,40}$)[a-zA-Z]{2,}(?:[-'\\s][a-zA-Z]+)*$";
+
+        if((!isEmpty(prenomFv)) & (prenomStr.matches(regexPrenom))){
+
+            //OK
+            nomFv.setError(null);
+
+            //txtLayOutNom.setErrorEnabled(false);
 
             return true;
         }
+
+        else if((isEmpty(prenomFv)) & (!prenomStr.matches(regexPrenom))){
+
+            prenomFv.setError(emptyMsgErr + " " + errValidity);
+
+            //txtLayOutNom.setErrorEnabled(false);
+
+            return false;
+
+        }
+        else if((isEmpty(prenomFv)) || (!prenomStr.matches(regexPrenom))){
+
+            if((isEmpty(prenomFv))){
+                prenomFv.setError(emptyMsgErr);
+                return false;
+            }
+            else if((!prenomStr.matches(regexPrenom))){
+                prenomFv.setError(errValidity);
+                return false;
+            }
+            return false;
+        }
+        else {
+            throw new Exception("Error on prénom field");
+        }
+
 
     } //prenomValide
 
 
     boolean validEmailI() {
 
-        String courrielStr = idCourriel.getText().toString().trim();
+        String courrielStr = courrielFv.getText().toString().trim();
 
 
-        if (isEmpty(idCourriel)) {
-            idCourriel.setError(emptyMsgErr);
+        if (isEmpty(courrielFv)) {
+            courrielFv.setError(emptyMsgErr);
             return false;
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(courrielStr).matches()){
-                idCourriel.setError("Entrez un courriel valide. Enter a valid email!");
+                courrielFv.setError("Entrez un courriel valide. Enter a valid email!");
                 return false;
             }
         else {
@@ -321,17 +413,38 @@ public class CreerCompte extends AppCompatActivity {
 
     }//validEmailI
 
+    boolean passValide(){
+        String motDePasseStr = passFv.getText().toString().trim();
+
+        // At least 5 caracters and up to 8 & least 1 number
+        String passRegex ="^(?=.*\\d).{5,8}$";
+
+
+        if (isEmpty(passFv)) {
+            passFv.setError(emptyMsgErr);
+            return false;
+        }
+        else if (!motDePasseStr.matches(passRegex)) {
+            passFv.setError("Entrez un mot de passe valide. Enter a valid password.");
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }//passValide
+
     boolean validAge() {
 
-        if (isEmpty(idAge)) {
-            idAge.setError(emptyMsgErr);
+        if (isEmpty(ageFv)) {
+            ageFv.setError(emptyMsgErr);
             return false;
         }
 
-        int ageNbr = parseInt(idAge.getText().toString().trim());
+        int ageNbr = parseInt(ageFv.getText().toString().trim());
 
         if ( ageNbr < 18 || ageNbr > 120){
-            idAge.setError("Entrez un âge valide. Enter a valid age.");
+            ageFv.setError("Entrez un âge valide. Enter a valid age.");
             return false;
         }
         else {
@@ -341,15 +454,15 @@ public class CreerCompte extends AppCompatActivity {
 
     boolean validGrandeur() {
 
-        if (isEmpty(idGrandeur)) {
-            idGrandeur.setError(emptyMsgErr);
+        if (isEmpty(grandeurFv)) {
+            grandeurFv.setError(emptyMsgErr);
             return false;
         }
 
-        Double grandeurNbr = Double.parseDouble(idGrandeur.getText().toString().trim());
+        Double grandeurNbr = Double.parseDouble(grandeurFv.getText().toString().trim());
 
         if (grandeurNbr < 50.5 || grandeurNbr > 272.5){
-            idGrandeur.setError("Entrez une grandeur valide. Enter a valid height.");
+            grandeurFv.setError("Entrez une grandeur valide. Enter a valid height.");
             return false;
         }
         else {
@@ -383,11 +496,16 @@ public class CreerCompte extends AppCompatActivity {
     }//validRelig
 
 
-    void formValidation() {
+    void formValidation() throws Exception {
 
-        if(nomValide() & prenomValide() & validEmailI() & validAge() & validGrandeur() & validEdu() & validRelig()){
+        //All need to be executed & true, but in order to display every error msg at the same time if needed all need to be checked
+        if(nomValide() & prenomValide() & validEmailI() & passValide() & validAge() & validGrandeur() & validEdu() & validRelig()){
 
             registerUser();
+            alertMsg(CompteCreerOkMsg);
+
+            Intent i = new Intent(CreerCompte.this, MainActivity.class);
+            startActivity(i);
         }
         else{
             alertMsg(errSubmitMsg);
