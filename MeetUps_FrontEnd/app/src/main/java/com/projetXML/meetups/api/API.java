@@ -1,5 +1,6 @@
 package com.projetXML.meetups.api;
 
+import com.projetXML.meetups.models.LikeRequestBody;
 import com.projetXML.meetups.models.LoginResponse;
 import com.projetXML.meetups.models.PrivateUser;
 import com.projetXML.meetups.models.PublicUser;
@@ -23,12 +24,15 @@ public interface API {
     @POST("register")
     Call<ResponseBody> register(@Body RegisterRequestBody body);
 
-
     @POST("login")
     Call<LoginResponse> login(@Body PrivateUser body);
 
     @GET("availableprofile")
     Call<List<PublicUser>> getAvailableProfile(@Query("idUser") int idUser);
+
+    @POST("likeProfile")
+    Call<ResponseBody> likeProfile(@Body LikeRequestBody body);
+
 
 
 }// API

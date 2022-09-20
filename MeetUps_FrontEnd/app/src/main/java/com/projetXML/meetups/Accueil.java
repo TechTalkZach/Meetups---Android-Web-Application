@@ -10,13 +10,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projetXML.meetups.api.RetrofitClient;
+import com.projetXML.meetups.models.LikeRequestBody;
 import com.projetXML.meetups.models.PublicUser;
 import com.projetXML.meetups.state.AuthState;
 import com.projetXML.meetups.utilities.Utilities;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,14 +55,17 @@ public class Accueil extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<PublicUser>> call, Response<List<PublicUser>> response) {
                 if(response.code() != 200){
-                    System.out.println(">>>>>" +"---------------Hello");
-                   Utilities.showAlert(getApplicationContext(), response.message());
-                    //put back when API works -----    : return;
+
+                    System.out.println(">>>>>" +"---------------not 200");
+                   alertMsg(response.message());
+
+                    return;
                 }
 
+                list = response.body();
 
-                //list = response.body();
-                list = new ArrayList<PublicUser>();
+                //When server down.
+             /*   list = new ArrayList<PublicUser>();
                 list.add(
                         new PublicUser(1,"nom","prenom","sexe",35,160.5,"edu","situFami","relig","recherche","nullPic")
                 );
@@ -69,7 +73,7 @@ public class Accueil extends AppCompatActivity {
                         new PublicUser(2,"nom2","prenom2","sexe2",35,160.52,"edu2","situFami2","relig2","recherche2","nullPic2")
                 );
                 updateUI();
-                System.out.println(">>>>>" + list.size());
+                System.out.println(">>>>>" + list.size());*/
             }
 
             @Override
@@ -81,17 +85,10 @@ public class Accueil extends AppCompatActivity {
     }//getAvailableProfile()
 
     private void updateUI(){
-        if(currentIndex >= list.size())
-        {
-            //getAvailableProfile();
-            Utilities.showAlert(this, "Il n'y a aucune autre profil disponible pour le moment");
-            //test comment
-            return;
 
-        }
+        //TODO change pictures & name
 
-        PublicUser publicUser = list.get(currentIndex);
-        alertMsg(publicUser.toString());;
+
 
 
     }//updateUI()
@@ -116,15 +113,22 @@ public class Accueil extends AppCompatActivity {
     }//alertMsg()
 
     public void getDets(){
-        //List<String> fields = entities.stream().map(YourEntity::publicUser()).collect(Collectors.toList());
 
-      //  String listIter = list.iterator().toString();
-       // System.out.println(listIter);
+        if(currentIndex >= list.size())
+        {
+            //getAvailableProfile();
+            alertMsg("Il n'y a aucune autre profil disponible pour le moment");
+            //test comment
+            return;
 
-      //  PublicUser publicUserObj = (PublicUser) getIntent().getSerializableExtra("id");
+        }
 
-       // System.out.println(publicUserObj);
-        //alertMsg(listIter);
+
+        PublicUser publicUser = list.get(currentIndex);
+
+        alertMsg(publicUser.getNom()+ publicUser.getPrenom() + publicUser.getAge());;
+
+
 
     }//getDets()
 
@@ -139,10 +143,11 @@ public class Accueil extends AppCompatActivity {
 
                 //TODO 1. Make a req to server if liked profile or not 2.UpdateUi which will load next person unto the screen.
 
-
+                performLike(1);
 
                 currentIndex++;
                 updateUI();
+
 
                 //alertMsg("Vous avez matcher avec ce profil!\nYou matched with this profile!");
                 //getAvailableProfile();
@@ -156,10 +161,13 @@ public class Accueil extends AppCompatActivity {
                 alertMsg("btnNon");
 
                 //TODO 1. Make a req to server if liked profile or not 2.UpdateUi which will load next person unto the screen.
+                performLike(0);
 
 
                 currentIndex++;
+
                 updateUI();
+
 
                 //getAvailableProfile();
             }
@@ -176,6 +184,34 @@ public class Accueil extends AppCompatActivity {
 
     }//btnClickEvents()
 
+    private void performLike(int liked) {
+        PublicUser user= list.get(currentIndex);
+
+        Call<ResponseBody> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .likeProfile(new LikeRequestBody(AuthState.getMyID(),user.getId(),liked));
+
+        call.enqueue(new Callback <ResponseBody> () {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.code() != 200){
+
+                    System.out.println(">>>>>" +"---------------not 200");
+                    alertMsg(response.message());
+
+                    return;
+                }
+                alertMsg(response.message());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                System.out.println(">>>>>" +"---------------failure");
+                Utilities.showAlert(getApplicationContext(), t.getMessage());
+            }
+        });
+    }
 
 
 }
