@@ -1,3 +1,4 @@
+const { connectionPromise } = require('../src/database/dbConfig');
 const { getPrivateUser } = require('../src/database/privateUserTable');
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
@@ -56,4 +57,20 @@ async function test(){
 
 }
 
-test1()
+async function database(){
+    try{
+        const query = `
+        DELETE FROM privateUser
+WHERE idUser != 37;
+        `
+        const connection = await connectionPromise
+        const [row] = await connection.query(query)
+
+        console.log(row)
+
+    } catch(e){
+        console.log(e)
+    }
+}
+
+database()
