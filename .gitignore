@@ -5,8 +5,8 @@ MeetUps_Backend/node_modules
 
 
 #For frontend
-MeetUps_FrontEnd/.gradle
-MeetUps_FrontEnd/build/
+MeetUps_FrontEnd/.gradle/
+MeetUps_FrontEnd/build.gradle
 MeetUps_FrontEnd/local.properties
 MeetUps_FrontEnd/*.log
 MeetUps_FrontEnd/captures/
@@ -23,3 +23,16 @@ MeetUps_FrontEnd/*.jks
 MeetUps_FrontEnd/*.keystore
 MeetUps_FrontEnd/google-services.json
 MeetUps_FrontEnd/*.hprof
+
+#Ana's ignore 
+MeetUps_FrontEnd/app/build/
+MeetUps_FrontEnd/app/build.gradle
+MeetUps_FrontEnd/app/proguard-rules.pro
+MeetUps_FrontEnd/app/desktop.ini
+
+#If just src push
+MeetUps_FrontEnd/app/src/androidTest/
+MeetUps_FrontEnd/app/src/test/
+
+
+

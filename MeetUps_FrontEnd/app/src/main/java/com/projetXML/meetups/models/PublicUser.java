@@ -79,6 +79,6 @@ public class PublicUser {
     @NonNull
     @Override
     public String toString() {
-        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + prenom +" " + nom +" " + prenom ;
+        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + this.grandeur +" " + this.education +" " + this.situationFamiliale + " "+ this.religion + " "+ this.recherche ;
     }
 }

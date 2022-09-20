@@ -41,7 +41,6 @@ public class Accueil extends AppCompatActivity {
         getAvailableProfile();
         btnClickEvents();
 
-
     }// OnCreate
 
     //Function to get all available profile on the server
@@ -86,6 +85,7 @@ public class Accueil extends AppCompatActivity {
         {
             //getAvailableProfile();
             Utilities.showAlert(this, "Il n'y a aucune autre profil disponible pour le moment");
+            //test comment
             return;
 
         }

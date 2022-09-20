@@ -22,7 +22,8 @@ const COLUMN_MOTDEPASSE = "motDePasse"
         if(e.code === "ER_DUP_ENTRY")
             errorMessage = "Un utilisateur a deja ete creer avec ce courriel"
         else
-            errorMessage = "erreur dans l'enregistrement"
+           // errorMessage = "erreur dans l'enregistrement" + e.message;
+			errorMessage = e.message;
 
         throw errorMessage
     }
@@ -41,7 +42,8 @@ async function getPrivateUser(courriel){
             return row[0]
 
     } catch(e){
-        throw "Erreur lors de la connexion"
+       // throw "Erreur lors de la connexion"+ e.message;
+	   throw e;
     }
 }
 
