@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,7 +61,7 @@ public class Accueil extends AppCompatActivity {
 
     }// OnCreate
 
-    //Gets all available profile that user has not yet liked or not off the availables ones on the server
+    //Function to get all available profile on the server
     private void getAvailableProfile(){
         Call<List<PublicUser>> call = RetrofitClient
                 .getInstance()
@@ -72,29 +73,37 @@ public class Accueil extends AppCompatActivity {
             public void onResponse(Call<List<PublicUser>> call, Response<List<PublicUser>> response) {
                 if(response.code() != 200){
 
-                    System.out.println(">>>>>" + "---------------not 200");
-                    System.out.println(response.message());
+                    System.out.println(">>>>>" +"---------------not 200");
+                   Utilities.alertMsg(Accueil.this,response.message());
 
                     return;
                 }
 
                 list = response.body();
 
-                if(list.isEmpty()){
-                    //Redirect to match page
-                    Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible, vous serez redirigé à la page Matchs.\nThere is no more profiles. You are going to be redirected to the Matches page. ");
+                if(currentIndex >= list.size() || list.isEmpty()){
 
-                    Intent i = new Intent(Accueil.this, Match.class);
-                    startActivity(i);
+                    //Redirect to match page
+                    Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible, vous serez redirigez à la page de match.\nThere is no more profiles.You will be redirected to the match page.");
+
+                    //TEST---------------------------------------------------
+                    final Handler handler = new Handler();
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(Accueil.this, Match.class);
+                            startActivity(i);
+                        }
+                    }, 5000);
 
                 }
                 else {
                     updateUI();
                 }
 
-                //When server down we'll use this static list of PublicUsers object.
-             /* -----------------------------------------------------------------------------------------------------
-                list = new ArrayList<PublicUser>();
+                //When server down.
+             /*   list = new ArrayList<PublicUser>();
                 list.add(
                         new PublicUser(1,"nom","prenom","sexe",35,160.5,"edu","situFami","relig","recherche","nullPic")
                 );
@@ -102,14 +111,12 @@ public class Accueil extends AppCompatActivity {
                         new PublicUser(2,"nom2","prenom2","sexe2",35,160.52,"edu2","situFami2","relig2","recherche2","nullPic2")
                 );
                 updateUI();
-                System.out.println(">>>>>" + list.size());
-                -----------------------------------------------------------------------------------------------------*/
+                System.out.println(">>>>>" + list.size());*/
             }
-
             @Override
             public void onFailure(Call<List<PublicUser>> call, Throwable t) {
                 System.out.println(">>>>>" +"---------------failure");
-                System.out.println(t.getMessage());
+                Utilities.alertMsg(getApplicationContext(), t.getMessage());
             }
         });
     }//getAvailableProfile()
@@ -132,6 +139,7 @@ public class Accueil extends AppCompatActivity {
 
                     return;
                 }
+                System.out.println(response.message());
             }
 
             @Override
@@ -144,58 +152,92 @@ public class Accueil extends AppCompatActivity {
 
     private void updateUI(){
 
+
         btnNon.setVisibility(View.VISIBLE);
         btnOui.setVisibility(View.VISIBLE);
         btnVoirDets.setVisibility(View.VISIBLE);
 
-        //TODO Display name
 
-        PublicUser publicUser = list.get(currentIndex);
+        if(currentIndex >= list.size() ||list.isEmpty()){
 
-        ImageView chgedImg = (ImageView)findViewById(R.id.imageId);
+            //Redirect to match page
+            Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible, vous serez redirigez à la page de match.\nThere is no more profiles.You will be redirected to the match page.");
 
-        @SuppressLint("StaticFieldLeak") AsyncTask<String, Void, Bitmap> downloadTask = new AsyncTask<String, Void, Bitmap>() {
+            //TEST---------------------------------------------------
+            final Handler handler = new Handler();
 
-            @Override
-            protected Bitmap doInBackground(String... strings) {
-                String imgUrl = publicUser.getPhotoProfilURL();
-                Bitmap img = null;
-                try {
-                    InputStream in = new java.net.URL(imgUrl).openStream();
-                    img = BitmapFactory.decodeStream(in);
-                } catch (Exception e) {
-                    System.out.println("Error"+ e.getMessage());
-                    e.printStackTrace();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(Accueil.this, Match.class);
+                    startActivity(i);
                 }
-                return img;
-            }
+            }, 5000);
 
-            @Override
-            protected void onPostExecute(Bitmap result) {
-                chgedImg.setImageBitmap(result);
-            }
-        };
+        }
+        else {
 
-        downloadTask.execute();
+            PublicUser publicUser = list.get(currentIndex);
 
+            ImageView chgedImg = (ImageView) findViewById(R.id.imageId);
+
+            System.out.println("===============================" + publicUser.getPhotoProfilURL());
+
+
+            @SuppressLint("StaticFieldLeak")
+            AsyncTask<String, Void, Bitmap> downloadTask = new AsyncTask<String, Void, Bitmap>() {
+
+
+                @Override
+                protected Bitmap doInBackground(String... strings) {
+                    String urldisplay = publicUser.getPhotoProfilURL();
+                    Bitmap img = null;
+                    try {
+                        InputStream in = new java.net.URL(urldisplay).openStream();
+                        img = BitmapFactory.decodeStream(in);
+                    } catch (Exception e) {
+                        System.out.println("Error" + e.getMessage());
+                        e.printStackTrace();
+                    }
+                    return img;
+                }
+
+                @Override
+                protected void onPostExecute(Bitmap result) {
+                    chgedImg.setImageBitmap(result);
+                }
+            };
+
+            downloadTask.execute();
+        }
     }//updateUI()
-
-
-
 
 
     public void getDets(){
 
-        if(currentIndex >= list.size())
+        if(currentIndex >= list.size() || list.isEmpty() )
         {
-            Utilities.alertMsg(Accueil.this,"Il n'y a aucune autre profil disponible pour le moment");
 
-            return;
+                //Redirect to match page
+                Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible, vous serez redirigez à la page de match.\nThere is no more profiles.You will be redirected to the match page.");
+
+                final Handler handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(Accueil.this, Match.class);
+                        startActivity(i);
+                    }
+                }, 5000);
+
+            }
+        else{
+            PublicUser publicUser = list.get(currentIndex);
+
+            Utilities.alertMsg(Accueil.this,"Nom: " +publicUser.getNom()+ "\nPrénom: " + publicUser.getPrenom() + "\nAge: " + publicUser.getAge());
+
         }
-
-        PublicUser publicUser = list.get(currentIndex);
-
-        Utilities.alertMsg(Accueil.this,"Nom :" + publicUser.getNom()+ "\nPrénom :" + publicUser.getPrenom() + "\nAge :" + publicUser.getAge());
 
     }//getDets()
 
@@ -224,18 +266,18 @@ public class Accueil extends AppCompatActivity {
                 currentIndex++;
                 updateUI();
 
+
+                //getAvailableProfile();
             }
         });
 
         btnVoirDets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
               getDets();
-
             }
         });
 
     }//btnClickEvents()
 
-}//Accueil
+}

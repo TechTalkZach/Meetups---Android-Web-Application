@@ -1,5 +1,6 @@
 package com.projetXML.meetups;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -7,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -95,7 +97,14 @@ public class MainActivity extends AppCompatActivity {
             isValid = false;
         } else {
             if (!motDePasseStr.matches(passRegex)) {
-                pass.setError("Entrez un mot de passe valide. Enter a valid password.\nMin 5 car. à 8 max et au moins un chiffres.");
+                pass.setError("Entrez un mot de passe valide. Enter a valid password.");
+
+                //Toast error
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toastErr = Toast.makeText(context, "Min 5 car. à 8 max et au moins un chiffres.",duration);
+                toastErr.show();
                 isValid = false;
             }
             else{
@@ -132,11 +141,16 @@ public class MainActivity extends AppCompatActivity {
                     //Enregistrer le idUser dans authState
                     AuthState.setMyID(response.body().getIdUser());
 
-                    //Navigate to home page
+                    //Redirect to home page
                     navigateToHomePage();
 
                 } else {
                     System.out.println(response.message());
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_LONG;
+
+                    Toast toastErr = Toast.makeText(context, response.message(),duration);
+                    toastErr.show();
                 }
 
             }
@@ -144,6 +158,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 System.out.println(t.getMessage());
+
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toastErr = Toast.makeText(context, t.getMessage(),duration);
+                toastErr.show();
             }
         });
 
