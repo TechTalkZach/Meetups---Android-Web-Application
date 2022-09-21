@@ -2498,6 +2498,7 @@ drawable ic_pass
 drawable ic_swipe
 drawable ic_user
 drawable interets
+drawable loading
 drawable logo_meetups
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
@@ -2803,6 +2804,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageId
 id imageView
 id immediateStop
 id included

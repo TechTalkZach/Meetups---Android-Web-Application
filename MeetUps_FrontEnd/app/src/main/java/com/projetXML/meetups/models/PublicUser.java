@@ -76,9 +76,11 @@ public class PublicUser {
         return recherche;
     }
 
+    public String getPhotoProfilURL(){return photoProfilURL ;}
+
     @NonNull
     @Override
     public String toString() {
-        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + this.grandeur +" " + this.education +" " + this.situationFamiliale + " "+ this.religion + " "+ this.recherche ;
+        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + this.grandeur +" " + this.education +" " + this.situationFamiliale + " "+ this.religion + " "+ this.recherche  + " "+ this.photoProfilURL ;
     }
 }

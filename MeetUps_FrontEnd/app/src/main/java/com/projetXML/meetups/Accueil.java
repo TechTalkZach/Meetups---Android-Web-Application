@@ -1,12 +1,15 @@
 
 package com.projetXML.meetups;
 
-import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projetXML.meetups.api.RetrofitClient;
@@ -15,6 +18,7 @@ import com.projetXML.meetups.models.PublicUser;
 import com.projetXML.meetups.state.AuthState;
 import com.projetXML.meetups.utilities.Utilities;
 
+import java.io.InputStream;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -39,6 +43,14 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
+        btnOui = findViewById(R.id.btnOui);
+        btnNon = findViewById(R.id.btnNon);
+        btnVoirDets = findViewById(R.id.btnDetails);
+
+        btnNon.setVisibility(View.GONE);
+        btnOui.setVisibility(View.GONE);
+        btnVoirDets.setVisibility(View.GONE);
+
         getAvailableProfile();
         btnClickEvents();
 
@@ -57,12 +69,25 @@ public class Accueil extends AppCompatActivity {
                 if(response.code() != 200){
 
                     System.out.println(">>>>>" +"---------------not 200");
-                   alertMsg(response.message());
+                   Utilities.alertMsg(Accueil.this,response.message());
 
                     return;
                 }
 
                 list = response.body();
+
+                if(list.isEmpty()){
+                    //Redirect to match page
+                    Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible\nThere is no more profiles.");
+
+                    //TODO redirection (intend)
+                    Intent i = new Intent(Accueil.this, Match.class);
+                    startActivity(i);
+
+                }
+                else {
+                    updateUI();
+                }
 
                 //When server down.
              /*   list = new ArrayList<PublicUser>();
@@ -79,63 +104,110 @@ public class Accueil extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<PublicUser>> call, Throwable t) {
                 System.out.println(">>>>>" +"---------------failure");
-                Utilities.showAlert(getApplicationContext(), t.getMessage());
+                Utilities.alertMsg(getApplicationContext(), t.getMessage());
             }
         });
     }//getAvailableProfile()
 
+    private void performLike(int liked) {
+        PublicUser user= list.get(currentIndex);
+
+
+
+        Call<ResponseBody> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .likeProfile(new LikeRequestBody(AuthState.getMyID(),user.getId(),liked));
+
+        call.enqueue(new Callback <ResponseBody> () {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.code() != 200){
+
+                    System.out.println(">>>>>" +"---------------not 200");
+                    Utilities.alertMsg(Accueil.this,response.message());
+
+                    return;
+                }
+                Utilities.alertMsg(Accueil.this,response.message());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                System.out.println(">>>>>" +"---------------failure");
+                Utilities.alertMsg(getApplicationContext(), t.getMessage());
+            }
+        });
+    }//performLike()
+
     private void updateUI(){
+
+
+        btnNon.setVisibility(View.VISIBLE);
+        btnOui.setVisibility(View.VISIBLE);
+        btnVoirDets.setVisibility(View.VISIBLE);
 
         //TODO change pictures & name
 
+        PublicUser publicUser = list.get(currentIndex);
 
+        ImageView chgedImg = (ImageView)findViewById(R.id.imageId);
+      //  chgedImg.setImageResource(publicUser.getPhotoProfilURL());
 
+        System.out.println("==============================="+publicUser.getPhotoProfilURL());
+
+       // imageChg.setImageResource(R.Id imageId);
+
+        AsyncTask<String, Void, Bitmap> downloadTask = new AsyncTask<String, Void, Bitmap>() {
+
+            @Override
+            protected Bitmap doInBackground(String... strings) {
+                String urldisplay = publicUser.getPhotoProfilURL();
+                Bitmap img = null;
+                try {
+                    InputStream in = new java.net.URL(urldisplay).openStream();
+                    img = BitmapFactory.decodeStream(in);
+                } catch (Exception e) {
+                    System.out.println("Error"+ e.getMessage());
+                    e.printStackTrace();
+                }
+                return img;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap result) {
+                chgedImg.setImageBitmap(result);
+            }
+        };
+
+        downloadTask.execute();
 
     }//updateUI()
 
-    public void alertMsg(String message){
-        AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Alerte");
-
-        alertDialogBuilder.setMessage(message);
-        alertDialogBuilder.setCancelable(false);
 
 
-        alertDialogBuilder.setNeutralButton("Ok",new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog,int which){
-                dialog.cancel();
-            }
-        });
 
-        AlertDialog alertDialog=alertDialogBuilder.create();
-        alertDialog.show();
-    }//alertMsg()
 
     public void getDets(){
 
         if(currentIndex >= list.size())
         {
             //getAvailableProfile();
-            alertMsg("Il n'y a aucune autre profil disponible pour le moment");
-            //test comment
+            Utilities.alertMsg(Accueil.this,"Il n'y a aucune autre profil disponible pour le moment");
+
             return;
 
         }
 
-
         PublicUser publicUser = list.get(currentIndex);
 
-        alertMsg(publicUser.getNom()+ publicUser.getPrenom() + publicUser.getAge());;
-
-
+        Utilities.alertMsg(Accueil.this,publicUser.getNom()+ publicUser.getPrenom() + publicUser.getAge());
 
     }//getDets()
 
+
+
     private void btnClickEvents() {
-        btnOui = findViewById(R.id.btnOui);
-        btnNon = findViewById(R.id.btnNon);
-        btnVoirDets = findViewById(R.id.btnDetails);
 
         btnOui.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,14 +230,13 @@ public class Accueil extends AppCompatActivity {
         btnNon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertMsg("btnNon");
+                Utilities.alertMsg(Accueil.this,"btnNon");
 
                 //TODO 1. Make a req to server if liked profile or not 2.UpdateUi which will load next person unto the screen.
                 performLike(0);
 
 
                 currentIndex++;
-
                 updateUI();
 
 
@@ -176,42 +247,12 @@ public class Accueil extends AppCompatActivity {
         btnVoirDets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               alertMsg("btnVoirDets");
+                Utilities.alertMsg(Accueil.this,"btnVoirDets");
 
               getDets();
             }
         });
 
     }//btnClickEvents()
-
-    private void performLike(int liked) {
-        PublicUser user= list.get(currentIndex);
-
-        Call<ResponseBody> call = RetrofitClient
-                .getInstance()
-                .getAPI()
-                .likeProfile(new LikeRequestBody(AuthState.getMyID(),user.getId(),liked));
-
-        call.enqueue(new Callback <ResponseBody> () {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.code() != 200){
-
-                    System.out.println(">>>>>" +"---------------not 200");
-                    alertMsg(response.message());
-
-                    return;
-                }
-                alertMsg(response.message());
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                System.out.println(">>>>>" +"---------------failure");
-                Utilities.showAlert(getApplicationContext(), t.getMessage());
-            }
-        });
-    }
-
 
 }
