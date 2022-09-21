@@ -1,6 +1,5 @@
 package com.projetXML.meetups;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projetXML.meetups.api.RetrofitClient;
@@ -35,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        formI();
+        findViewByIds();
         btnClick();
 
     }// OnCreate
 
-    private void formI() {
+    private void findViewByIds() {
         userCourriel = findViewById(R.id.idCourriel);
         pass = findViewById(R.id.idMotDePass);
         btnCreerCompte = findViewById(R.id.idCreerCompteLogIn);
@@ -77,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
     void checkLogInI() {
         boolean isValid = true;
 
+        String motDePasseStr = pass.getText().toString().trim();
+
+        // At least 5 caracters and up to 8 & least 1 number
+        String passRegex ="^(?=.*\\d).{5,8}$";
+
         if (isEmpty(userCourriel)) {
             userCourriel.setError("Champ ne peut pas être vide. Field cannot be empty.");
             isValid = false;
@@ -91,16 +94,25 @@ public class MainActivity extends AppCompatActivity {
             pass.setError("Champ ne peut pas être vide. Field cannot be empty.");
             isValid = false;
         } else {
-            if (pass.getText().toString().length() < 5) {
-                pass.setError("Mot de passe doit avoir au moins 5 caractères. Password must have at least 5 chars long");
+            if (!motDePasseStr.matches(passRegex)) {
+                pass.setError("Entrez un mot de passe valide. Enter a valid password.\nMin 5 car. à 8 max et au moins un chiffres.");
                 isValid = false;
+            }
+            else{
+                isValid = true;
             }
         }
 
         if (isValid) {
-          login();
+            login();
         }
     }// checkLogInI
+
+    private void navigateToHomePage(){
+        Intent intent = new Intent(this, Accueil.class);
+        startActivity(intent);
+    }
+
 
     private void login(){
         String userNameI = userCourriel.getText().toString().trim();
@@ -124,46 +136,17 @@ public class MainActivity extends AppCompatActivity {
                     navigateToHomePage();
 
                 } else {
-                    showAlert(response.message());
+                    System.out.println(response.message());
                 }
 
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                showAlert(t.getMessage());
+                System.out.println(t.getMessage());
             }
         });
 
-    }
-
-    private void navigateToHomePage(){
-        Intent intent = new Intent(this, Accueil.class);
-        startActivity(intent);
-
-        //TODO HERE PUT THE ACCUEIL REIRECTION 1ST PAGE
-
-
-    }
-
-
-    private void showAlert(String message){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Alerte");
-
-        alertDialogBuilder.setMessage(message);
-        alertDialogBuilder.setCancelable(false);
-
-
-        alertDialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-    }
+    }//logIn()
 
 }// MainActivity

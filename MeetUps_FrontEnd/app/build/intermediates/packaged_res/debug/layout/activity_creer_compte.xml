@@ -131,7 +131,7 @@
                 android:background="@drawable/edittext_shape_trans"
                 android:hint="Grandeur (cm)"
                 android:layout_margin="10dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:padding="15dp"/>
 
             <TextView
