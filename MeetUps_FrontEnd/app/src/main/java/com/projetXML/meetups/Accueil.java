@@ -171,9 +171,9 @@ public class Accueil extends AppCompatActivity {
 
             //Redirect to match page
             Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible");
-            btnNon.setEnabled(false);
-            btnOui.setEnabled(false);
-            btnVoirDets.setEnabled(false);
+            btnNon.setVisibility(View.GONE);
+            btnOui.setVisibility(View.GONE);
+            btnVoirDets.setVisibility(View.GONE);
 
 
         }
