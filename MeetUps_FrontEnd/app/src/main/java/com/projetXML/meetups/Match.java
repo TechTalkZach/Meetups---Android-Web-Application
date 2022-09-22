@@ -54,7 +54,7 @@ public class Match extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<PublicUser>> call, Response<List<PublicUser>> response) {
                 if(response.code() != 200)
-                    Utilities.showAlert(getBaseContext(), response.message());
+                    Utilities.alertMsg(getBaseContext(), response.message());
                 else{
                     list = response.body();
                     updateRecyclerView();
@@ -65,11 +65,12 @@ public class Match extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<PublicUser>> call, Throwable t) {
                 System.out.println(t.getMessage());
-                Utilities.showAlert(getBaseContext(), "erreur lors de la requete");
+                Utilities.alertMsg(getBaseContext(), "erreur lors de la requete");
 
             }
         });
 
 
     }
+
 }

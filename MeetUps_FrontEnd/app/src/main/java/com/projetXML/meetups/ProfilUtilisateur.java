@@ -58,7 +58,7 @@ public class ProfilUtilisateur extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response) {
                 if(response.code() != 200){
-                    Utilities.showAlert(getApplicationContext(), response.message());
+                    Utilities.alertMsg(getApplicationContext(), response.message());
                 } else{
                     list = response.body();
                     updateRecyclerView();

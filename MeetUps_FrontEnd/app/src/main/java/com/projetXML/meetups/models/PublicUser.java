@@ -83,6 +83,6 @@ public class PublicUser implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + this.grandeur +" " + this.education +" " + this.situationFamiliale + " "+ this.religion + " "+ this.recherche ;
+        return this.id + " "+ this.nom +" " + this.prenom + " " + this.age +" " + this.grandeur +" " + this.education +" " + this.situationFamiliale + " "+ this.religion + " "+ this.recherche  + " "+ this.photoProfilURL ;
     }
 }

@@ -3,9 +3,16 @@ package com.projetXML.meetups;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +22,9 @@ import com.projetXML.meetups.models.LikeRequestBody;
 import com.projetXML.meetups.models.PublicUser;
 import com.projetXML.meetups.state.AuthState;
 import com.projetXML.meetups.utilities.Utilities;
+import com.squareup.picasso.Picasso;
 
+import java.io.InputStream;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -32,6 +41,8 @@ public class Accueil extends AppCompatActivity {
     Button btnVoirDets;
     Button btnMatch;
 
+    ImageView chgedImg;
+
 
     //Liste d'objets PublicUser
     List<PublicUser> list;
@@ -42,6 +53,19 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
+        //findViewById's
+        btnOui = findViewById(R.id.btnOui);
+        btnNon = findViewById(R.id.btnNon);
+        btnVoirDets = findViewById(R.id.btnDetails);
+        btnMatch = findViewById(R.id.btnMatchs);
+        chgedImg = findViewById(R.id.imageId);
+
+        //setVisibility
+        btnNon.setVisibility(View.GONE);
+        btnOui.setVisibility(View.GONE);
+        btnVoirDets.setVisibility(View.GONE);
+
+        //Displays first available profile & enables clickEvents
         getAvailableProfile();
         btnClickEvents();
 
@@ -60,41 +84,23 @@ public class Accueil extends AppCompatActivity {
                 if(response.code() != 200){
 
                     System.out.println(">>>>>" +"---------------not 200");
-                   alertMsg(response.message());
+                   Utilities.alertMsg(Accueil.this,response.message());
 
                     return;
                 }
 
                 list = response.body();
-
-                //When server down.
-             /*   list = new ArrayList<PublicUser>();
-                list.add(
-                        new PublicUser(1,"nom","prenom","sexe",35,160.5,"edu","situFami","relig","recherche","nullPic")
-                );
-                list.add(
-                        new PublicUser(2,"nom2","prenom2","sexe2",35,160.52,"edu2","situFami2","relig2","recherche2","nullPic2")
-                );
                 updateUI();
-                System.out.println(">>>>>" + list.size());*/
-            }
 
+            }
             @Override
             public void onFailure(Call<List<PublicUser>> call, Throwable t) {
                 System.out.println(">>>>>" +"---------------failure");
-                Utilities.showAlert(getApplicationContext(), t.getMessage());
+                Utilities.alertMsg(Accueil.this, t.getMessage());
             }
         });
     }//getAvailableProfile()
 
-    private void updateUI(){
-
-        //TODO change pictures & name
-
-
-
-
-    }//updateUI()
 
     public void alertMsg(String message){
         AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(this);
@@ -115,84 +121,9 @@ public class Accueil extends AppCompatActivity {
         alertDialog.show();
     }//alertMsg()
 
-    public void getDets(){
-
-        if(currentIndex >= list.size())
-        {
-            //getAvailableProfile();
-            alertMsg("Il n'y a aucune autre profil disponible pour le moment");
-            //test comment
-            return;
-
-        }
-
-
-        PublicUser publicUser = list.get(currentIndex);
-
-        alertMsg(publicUser.getNom()+ publicUser.getPrenom() + publicUser.getAge());;
 
 
 
-    }//getDets()
-
-    private void btnClickEvents() {
-        btnOui = findViewById(R.id.btnOui);
-        btnNon = findViewById(R.id.btnNon);
-        btnVoirDets = findViewById(R.id.btnDetails);
-        btnMatch = findViewById(R.id.btnMatchs);
-
-
-        btnOui.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //TODO 1. Make a req to server if liked profile or not 2.UpdateUi which will load next person unto the screen.
-
-                performLike(1);
-
-                currentIndex++;
-                updateUI();
-
-
-                //alertMsg("Vous avez matcher avec ce profil!\nYou matched with this profile!");
-                //getAvailableProfile();
-              //Not working  System.out.println(getAvailableProfile().toString());
-            }
-        });
-
-        btnNon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertMsg("btnNon");
-
-                //TODO 1. Make a req to server if liked profile or not 2.UpdateUi which will load next person unto the screen.
-                performLike(0);
-
-
-                currentIndex++;
-
-                updateUI();
-
-
-                //getAvailableProfile();
-            }
-        });
-
-        btnVoirDets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               alertMsg("btnVoirDets");
-
-              getDets();
-            }
-        });
-
-        btnMatch.setOnClickListener(view ->{
-            Intent i = new Intent(this, Match.class);
-            startActivity(i);
-        });
-
-    }//btnClickEvents()
 
     private void performLike(int liked) {
         PublicUser user= list.get(currentIndex);
@@ -208,20 +139,84 @@ public class Accueil extends AppCompatActivity {
                 if(response.code() != 200){
 
                     System.out.println(">>>>>" +"---------------not 200");
-                    alertMsg(response.message());
+                    System.out.println(response.message());
 
                     return;
                 }
-                alertMsg(response.message());
+                System.out.println(response.message());
+                currentIndex++;
+                updateUI();
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 System.out.println(">>>>>" +"---------------failure");
-                Utilities.showAlert(getApplicationContext(), t.getMessage());
+                System.out.println(t.getMessage());
+                currentIndex++;
+                updateUI();
             }
         });
-    }
+    }//performLike()
 
+    private void updateUI(){
+
+
+        btnNon.setVisibility(View.VISIBLE);
+        btnOui.setVisibility(View.VISIBLE);
+        btnVoirDets.setVisibility(View.VISIBLE);
+
+
+
+        if(currentIndex >= list.size() ||list.isEmpty()){
+
+            //Redirect to match page
+            Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible");
+            btnNon.setEnabled(false);
+            btnOui.setEnabled(false);
+            btnVoirDets.setEnabled(false);
+
+
+        }
+        else {
+
+            PublicUser publicUser = list.get(currentIndex);
+            Picasso
+                    .get()
+                    .load(publicUser.getPhotoProfilURL())
+                    .into(chgedImg);
+        }
+    }//updateUI()
+
+
+    public void getDets(){
+
+        if(currentIndex >= list.size() || list.isEmpty() )
+        {
+            //Redirect to match page
+            Utilities.alertMsg(Accueil.this,"Il n'y a plus de profil disponible");
+        }
+        else{
+            PublicUser publicUser = list.get(currentIndex);
+            Utilities.alertMsg(Accueil.this,"Nom: " +publicUser.getNom()+ "\nPrénom: " + publicUser.getPrenom() + "\nAge: " + publicUser.getAge());
+        }
+
+    }//getDets()
+
+
+
+    private void btnClickEvents() {
+
+        btnOui.setOnClickListener(view -> performLike(1));
+
+        btnNon.setOnClickListener(view -> performLike(0));
+
+        btnVoirDets.setOnClickListener(view -> getDets());
+
+        btnMatch.setOnClickListener(view -> {
+            Intent intent = new Intent(this, Match.class);
+            startActivity(intent);
+        });
+
+    }//btnClickEvents()
 
 }
