@@ -2,6 +2,7 @@
 package com.projetXML.meetups;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,8 @@ public class Accueil extends AppCompatActivity {
     Button btnOui;
     Button btnNon;
     Button btnVoirDets;
+    Button btnMatch;
+
 
     //Liste d'objets PublicUser
     List<PublicUser> list;
@@ -136,6 +139,8 @@ public class Accueil extends AppCompatActivity {
         btnOui = findViewById(R.id.btnOui);
         btnNon = findViewById(R.id.btnNon);
         btnVoirDets = findViewById(R.id.btnDetails);
+        btnMatch = findViewById(R.id.btnMatchs);
+
 
         btnOui.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +185,11 @@ public class Accueil extends AppCompatActivity {
 
               getDets();
             }
+        });
+
+        btnMatch.setOnClickListener(view ->{
+            Intent i = new Intent(this, Match.class);
+            startActivity(i);
         });
 
     }//btnClickEvents()

@@ -2,7 +2,9 @@ package com.projetXML.meetups.models;
 
 import androidx.annotation.NonNull;
 
-public class PublicUser {
+import java.io.Serializable;
+
+public class PublicUser implements Serializable {
 
         int id;
         String nom;
@@ -75,6 +77,8 @@ public class PublicUser {
     public String getRecherche() {
         return recherche;
     }
+
+    public String getPhotoProfilURL() { return photoProfilURL; }
 
     @NonNull
     @Override

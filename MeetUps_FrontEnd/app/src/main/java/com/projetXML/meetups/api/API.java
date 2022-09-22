@@ -2,6 +2,7 @@ package com.projetXML.meetups.api;
 
 import com.projetXML.meetups.models.LikeRequestBody;
 import com.projetXML.meetups.models.LoginResponse;
+import com.projetXML.meetups.models.Photo;
 import com.projetXML.meetups.models.PrivateUser;
 import com.projetXML.meetups.models.PublicUser;
 import com.projetXML.meetups.models.RegisterRequestBody;
@@ -33,6 +34,11 @@ public interface API {
     @POST("likeProfile")
     Call<ResponseBody> likeProfile(@Body LikeRequestBody body);
 
+    @GET("myMatch")
+    Call<List<PublicUser>> getMyMatch(@Query("idUser") int idUser);
+
+    @GET("photo")
+    Call<List<Photo>> getPhotosForProfile(@Query("idUser") int idUser);
 
 
 }// API

@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
     }//btnClick
 
     boolean validEmailI(EditText text) {

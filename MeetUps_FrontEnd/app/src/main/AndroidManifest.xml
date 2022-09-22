@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".CreerCompte" android:exported="true"></activity>
         <activity android:name=".Accueil" android:exported="true"></activity>
+        <activity android:name=".Match" android:exported="true"></activity>
+        <activity android:name=".ProfilUtilisateur" android:exported="true"></activity>
 
 
     </application>

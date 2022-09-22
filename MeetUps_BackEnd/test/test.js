@@ -25,8 +25,8 @@ const publicUser = {
 }
 
 const like = {
-    fromIdUser: 15,
-    toIdUser : 16,
+    fromIdUser: 37,
+    toIdUser : 6,
     liked: false
 }
 
@@ -46,7 +46,7 @@ async function test(){
         body: JSON.stringify(like) 
     }
 
-    const response = await fetch(testURL + "/likeProfile", options)
+    const response = await fetch(url + "/likeProfile", options)
 
     console.log(response.status)
 
@@ -73,4 +73,4 @@ WHERE idUser != 37;
     }
 }
 
-database()
+test()
